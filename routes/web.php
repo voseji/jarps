@@ -28,9 +28,7 @@ Route::get('enrol', function () {
     return view('new-user');
  });
 
- Route::get('candidates', function () {
-    return view('candidates');
- });
+ 
 
  Route::get('edit-candidate', function () {
     return view('edit-candidate');
@@ -40,9 +38,7 @@ Route::get('enrol', function () {
     return view('new-candidate');
  });
 
- Route::get('register2', function () {
-   return view('auth.register2');
-});
+
 
 
 Auth::routes();
@@ -57,7 +53,7 @@ Route::post('/register', 'Auth\AuthController@storeUser');
 
 
 Route::get('insert','StudInsertController@insertform');
-Route::post('create','StudInsertController@insert');
+//Route::post('create','StudInsertController@insert');
 
 
-Route::get('view-records','StudViewController@index');
+Route::get('candidates','StudViewController@index');

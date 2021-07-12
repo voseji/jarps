@@ -60,23 +60,12 @@
                                         <input class="form-control" type="email"  name="email">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input class="form-control" type="password">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Confirm Password</label>
-                                        <input class="form-control" type="password">
-                                    </div>
-                                </div>
+                                
 								<div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker">
+                                            <input type="text" id="date_of_birth" name="date_of_birth" class="form-control datetimepicker">
                                         </div>
                                     </div>
                                 </div>
@@ -85,12 +74,12 @@
 										<label class="gen-label">Gender:</label>
 										<div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" name="gender" class="form-check-input" checked>Male
+												<input type="radio" id="gender" name="gender" value="male" class="form-check-input">Male
 											</label>
 										</div>
 										<div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" name="gender" class="form-check-input">Female
+												<input type="radio" id="gender" name="gender" value="female" class="form-check-input">Female
 											</label>
 										</div>
 									</div>
