@@ -40,6 +40,9 @@ Route::get('enrol', function () {
     return view('new-candidate');
  });
 
+ Route::get('register2', function () {
+   return view('auth.register2');
+});
 
 
 Auth::routes();
