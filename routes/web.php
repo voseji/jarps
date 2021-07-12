@@ -53,7 +53,7 @@ Route::post('/register', 'Auth\AuthController@storeUser');
 
 
 Route::get('insert','StudInsertController@insertform');
-//Route::post('create','StudInsertController@insert');
+Route::post('create','StudInsertController@insert');
 
 
 Route::get('candidates','StudViewController@index');
