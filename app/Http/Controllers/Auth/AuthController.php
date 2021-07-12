@@ -26,10 +26,11 @@ class AuthController extends Controller
         ]);
 
         User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+          'name' => $request->name,
+          'email' => $request->email,
+          //'password' => $request->password,
+          'password' => Hash::make($request->password),
+      ]);
 
         return redirect('home');
     }

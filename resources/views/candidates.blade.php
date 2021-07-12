@@ -38,10 +38,10 @@
 							<table class="table table-border table-striped custom-table datatable mb-0">
 								<thead>
 									<tr>
-										<th>ID</th>
-										<th>Firstname</th>
-										<th>Othernames</th>
-										<th>Lastname</th>
+										
+										<th>Fullname</th>
+										<th>Email</th>
+										
 										
 										<th class="text-right">Action</th>
 									</tr>
@@ -49,11 +49,11 @@
 								<tbody>
 									<tr>
                                     @foreach ($users as $user)
-										<td><img width="28" height="28" src="assets/img/user.jpg" class="rounded-circle m-r-5" alt=""> Jennifer Robinson</td>
-                                        <td>{{ $user->id }}</td>
-                                        <td>{{ $user->firstname }}</td>
-                                        <td>{{ $user->othernames }}</td>
-                                        <td>{{ $user->lastname }}</td>
+										<td><img width="28" height="28" src="assets/img/user.jpg" class="rounded-circle m-r-5" alt=""> {{ $user->lastname }}, {{ $user->firstname }} {{ $user->othernames }}</td>
+                                        
+                                        
+                                        <td>{{ $user->email }}</td>
+                                        
 										
 										<td class="text-right">
 											<div class="dropdown dropdown-action">

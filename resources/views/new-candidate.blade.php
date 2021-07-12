@@ -30,7 +30,18 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                    <form action = "/create" method = "post" class="form-group" style="width:70%; margin-left:15%;" >
+                    @if(session()->has('status'))
+   
+      
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>{{ session()->get('status') }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+@endif
+                    <form  action = "/create" method = "post" class="form-group" style="width:70%; margin-left:15%;" >
                             <div class="row">
                                 <div class="col-sm-6">
                                 <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
@@ -60,23 +71,19 @@
                                         <input class="form-control" type="email"  name="email">
                                     </div>
                                 </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Password</label>
-                                        <input class="form-control" type="password">
+                                        <label>Phone Number</label>
+                                        <input type="phone_number" class="form-control"  name="phone_number">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Confirm Password</label>
-                                        <input class="form-control" type="password">
-                                    </div>
-                                </div>
+                                
 								<div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker">
+                                            <input type="text" id="date_of_birth" name="date_of_birth" class="form-control datetimepicker">
                                         </div>
                                     </div>
                                 </div>
@@ -85,12 +92,12 @@
 										<label class="gen-label">Gender:</label>
 										<div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" name="gender" class="form-check-input" checked>Male
+												<input type="radio" id="gender" name="gender" value="male" class="form-check-input">Male
 											</label>
 										</div>
 										<div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" name="gender" class="form-check-input">Female
+												<input type="radio" id="gender" name="gender" value="female" class="form-check-input">Female
 											</label>
 										</div>
 									</div>

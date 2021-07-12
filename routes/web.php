@@ -28,9 +28,7 @@ Route::get('enrol', function () {
     return view('new-user');
  });
 
- Route::get('candidates', function () {
-    return view('candidates');
- });
+ 
 
  Route::get('edit-candidate', function () {
     return view('edit-candidate');
@@ -39,6 +37,7 @@ Route::get('enrol', function () {
  Route::get('new-candidate', function () {
     return view('new-candidate');
  });
+
 
 
 
@@ -57,4 +56,4 @@ Route::get('insert','StudInsertController@insertform');
 Route::post('create','StudInsertController@insert');
 
 
-Route::get('view-records','StudViewController@index');
+Route::get('candidates','StudViewController@index');
