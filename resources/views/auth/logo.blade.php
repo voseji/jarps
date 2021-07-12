@@ -1,0 +1,1 @@
+<a href="index-2.html"><img src="assets/img/jamiya2.png" alt=""></a>
