@@ -87,6 +87,19 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-sm-6">
+											<div class="form-group">
+												<label>State of Origin</label>
+												<select class="form-control ">
+													<option>California</option>
+													<option>Alaska</option>
+													<option>Alabama</option>
+													<option class="selected">New York</option>
+												</select>
+											</div>
+                                            </div>
+
                                 <div class="col-sm-6">
 									<div class="form-group gender-select">
 										<label class="gen-label">Gender:</label>
@@ -100,6 +113,10 @@
 												<input type="radio" id="gender" name="gender" value="female" class="form-check-input">Female
 											</label>
 										</div>
+
+                                        
+										</div>
+
 									</div>
                                 </div>
 								<div class="col-sm-12">

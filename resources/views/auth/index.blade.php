@@ -12,7 +12,7 @@
                     <form action="{{ route('login') }}" method="POST" class="form-signin">
                     @csrf
 						<div class="account-logo">
-                        @include('auth/logo') 
+                        <h1>JSMS</h1>
                         </div>
                         <div class="form-group">
                         @error('email')
