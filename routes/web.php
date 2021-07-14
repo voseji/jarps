@@ -57,3 +57,6 @@ Route::post('create','StudInsertController@insert');
 
 
 Route::get('candidates','StudViewController@index');
+
+Route::get('new-candidate', 'DepartmentsController@index'); // localhost:8000/
+Route::get('/getEmployees/{id}', 'DepartmentsController@getEmployees');

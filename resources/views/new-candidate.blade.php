@@ -91,12 +91,24 @@
                                 <div class="col-sm-6">
 											<div class="form-group">
 												<label>State of Origin</label>
-												<select class="form-control ">
-													<option>California</option>
-													<option>Alaska</option>
-													<option>Alabama</option>
-													<option class="selected">New York</option>
-												</select>
+												<select id='sel_depart' name='sel_depart' class="form-control">
+       <option value='0'>-- Select State --</option>
+ 
+       <!-- Read Departments -->
+       @foreach($departmentData['data'] as $department)
+         <option value='{{ $department->id }}'>{{ $department->name }}</option>
+       @endforeach
+
+    </select>
+											</div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+											<div class="form-group">
+												<label>LGA of Origin</label>
+												<select id='sel_emp' name='sel_emp' class="form-control">
+                                                
+    </select>
 											</div>
                                             </div>
 
@@ -118,55 +130,41 @@
 										</div>
 
 									</div>
+
+
+                                    <div class="col-sm-6">
+									<div class="form-group gender-select">
+										<label class="gen-label">Marital Status:</label>
+										<div class="form-check-inline">
+											<label class="form-check-label">
+												<input type="radio" id="marital_status" name="marital_status" value="single" class="form-check-input">Single
+											</label>
+										</div>
+										<div class="form-check-inline">
+											<label class="form-check-label">
+												<input type="radio" id="marital_status" name="marital_status" value="married" class="form-check-input">Married
+											</label>
+										</div>
+
+                                        
+										</div>
+
+									</div>
+
                                 </div>
 								<div class="col-sm-12">
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group">
 												<label>Address</label>
-												<input type="text" class="form-control" value="555 Front St #APT 2H, Hempstead">
+												<input type="text" class="form-control" name="address">
 											</div>
 										</div>
-										<div class="col-sm-6 col-md-6 col-lg-3">
-											<div class="form-group">
-												<label>Country</label>
-												<select class="form-control select">
-													<option selected>USA</option>
-													<option>United Kingdom</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-6 col-md-6 col-lg-3">
-											<div class="form-group">
-												<label>City</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-sm-6 col-md-6 col-lg-3">
-											<div class="form-group">
-												<label>State/Province</label>
-												<select class="form-control select">
-													<option>California</option>
-													<option>Alaska</option>
-													<option>Alabama</option>
-													<option class="selected">New York</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-6 col-md-6 col-lg-3">
-											<div class="form-group">
-												<label>Postal Code</label>
-												<input type="text" class="form-control" value="11550">
-											</div>
-										</div>
+										
+										
 									</div>
 								</div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Phone </label>
-                                        <input class="form-control" type="text" value="3761506975">
-                                    </div>
-                                </div>
+                               
                                 <div class="col-sm-6">
 									<div class="form-group">
 										<label>Avatar</label>
@@ -195,7 +193,7 @@
 									Inactive
 									</label>
 								</div>
-                            </div>
+                            </div></div>
                             <div class="m-t-20 text-center">
                                 <button class="btn btn-primary submit-btn">Save</button>
                             </div>
@@ -423,6 +421,54 @@
 	<script src="assets/js/moment.min.js"></script>
 	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
     <script src="assets/js/app.js"></script>
+
+   <!-- Script -->
+   <script type='text/javascript'>
+
+$(document).ready(function(){
+
+  // Department Change
+  $('#sel_depart').change(function(){
+
+     // Department id
+     var id = $(this).val();
+
+     // Empty the dropdown
+     $('#sel_emp').find('option').not(':first').remove();
+
+     // AJAX request 
+     $.ajax({
+       url: 'getEmployees/'+id,
+       type: 'get',
+       dataType: 'json',
+       success: function(response){
+
+         var len = 0;
+         if(response['data'] != null){
+           len = response['data'].length;
+         }
+
+         if(len > 0){
+           // Read data and create <option >
+           for(var i=0; i<len; i++){
+
+             var id = response['data'][i].id;
+             var name = response['data'][i].name;
+
+             var option = "<option value='"+id+"'>"+name+"</option>"; 
+
+             $("#sel_emp").append(option); 
+           }
+         }
+
+       }
+    });
+  });
+
+});
+
+</script>
+
 </body>
 
 
