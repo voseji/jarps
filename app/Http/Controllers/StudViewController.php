@@ -12,4 +12,11 @@ class StudViewController extends Controller
         $users = DB::select('select * from candidates');
         return view('candidates',['users'=>$users]);
         }
+
+        public function index2(){
+            $users = DB::select('select * from candidates');
+            return view('candidate-view',['users'=>$users]);
+            } 
+
+          
 }

@@ -38,7 +38,9 @@ Route::get('enrol', function () {
     return view('new-candidate');
  });
 
-
+ Route::get('candidate-view', function () {
+   return view('candidate-view');
+});
 
 
 Auth::routes();
@@ -51,12 +53,20 @@ Route::get('/index', 'HomeController@login')->name('auth.index');
 Route::get('/register', 'Auth\AuthController@register')->name('register');
 Route::post('/register', 'Auth\AuthController@storeUser');
 
-
+//route for inserting candidates records
 Route::get('insert','StudInsertController@insertform');
 Route::post('create','StudInsertController@insert');
 
-
+//Route for viewing canidates records
 Route::get('candidates','StudViewController@index');
+Route::get('candidate-view','StudViewController@index2');
 
+//Route for pulling SOR and LGAOR
 Route::get('new-candidate', 'DepartmentsController@index'); // localhost:8000/
 Route::get('/getEmployees/{id}', 'DepartmentsController@getEmployees');
+
+//Route for uploading passport
+Route::view('/file-upload', 'upload');
+Route::post('/file-upload', 'GeneralController@store');
+Route::get('/view-uploads', 'GeneralController@viewUploads');
+//Route::get('/candidate-view', 'GeneralController@viewUploads2');
