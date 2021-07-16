@@ -13,19 +13,20 @@ class StudViewController extends Controller
         return view('candidates',['users'=>$users]);
         }
 
-        public function index2(){
+        public function index2(Request $request){
             $users = DB::select('select * from candidates');
             
 
             $users = DB::table('candidates')
             ->join('departments', 'departments.id', '=', 'candidates.state_of_origin')
             ->join('employees', 'candidates.lga_of_origin', '=', 'employees.id')
-            ->select('candidates.*', 'departments.name', 'employees.name as lga')
+            ->select('candidates.*', 'departments.name', 'employees.name as lga')->where ('candidates.id', '=', $request->id)
             ->get();
 
             return view('candidate-view',['users'=>$users]);
 
             } 
 
+           
           
 }

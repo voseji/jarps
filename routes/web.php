@@ -15,7 +15,7 @@
 
 
 Route::get('/', function () {
-   return view('auth/index');
+   return view('auth.index');
 });
 
 
@@ -42,6 +42,12 @@ Route::get('enrol', function () {
    return view('candidate-view');
 });
 
+Route::get('candidate-passport', function () {
+   return view('candidate-passport');
+});
+
+
+
 
 Auth::routes();
 
@@ -56,10 +62,13 @@ Route::post('/register', 'Auth\AuthController@storeUser');
 //route for inserting candidates records
 Route::get('insert','StudInsertController@insertform');
 Route::post('create','StudInsertController@insert');
+Route::get('candidate-passport','StudInsertController@insertform2');
+
 
 //Route for viewing canidates records
 Route::get('candidates','StudViewController@index');
 Route::get('candidate-view','StudViewController@index2');
+Route::get('candidate-edit','EditCandidateController@index3');
 
 //Route for pulling SOR and LGAOR
 Route::get('new-candidate', 'DepartmentsController@index'); // localhost:8000/
@@ -72,7 +81,7 @@ Route::get('/view-uploads', 'GeneralController@viewUploads');
 Route::get('/view_uploads', 'GeneralController@viewUploads2');
 
 
-use App\Http\Controllers\ImageUploadController;
- 
-Route::get('image-upload-preview', [ImageUploadController::class, 'index']);
-Route::post('upload-image', [ImageUploadController::class, 'store']);
+Route::get('upload-images', 'ImageController@index');
+Route::post('upload-images', 'ImageController@storeImage');
+
+Route::get('candidate-edit/{$id}', 'UserNavigate@special');

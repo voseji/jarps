@@ -13,7 +13,7 @@
 							<a href="#"><i class="fa fa-user"></i> <span> Registration </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="new-candidate">New Registration</a></li>
-								<li><a href="edit-candidate">Edit Registration</a></li>
+								<li><a href="candidate-edit">Edit Registration</a></li>
 								
 							</ul>
 						</li>

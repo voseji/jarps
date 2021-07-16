@@ -1,48 +1,37 @@
 <?php
- 
+
 namespace App\Http\Controllers;
- 
+
 use Illuminate\Http\Request;
-use Validator,Redirect,Response,File;
-Use Image;
-Use App\Photo;
-use Intervention\Image\Exception\NotReadableException;
- 
- 
+use App\Image;
+
 class ImageController extends Controller
 {
- 
-public function index()
-{
-  return view('image');
-}
- 
-public function save(Request $request)
-{
- request()->validate([
-      'photo_name' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
- ]);
- 
- if ($files = $request->file('photo_name')) {
-     
-    // for save original image
-    $ImageUpload = Image::make($files);
-    $originalPath = 'public/images/';
-    $ImageUpload->save($originalPath.time().$files->getClientOriginalName());
-     
-    // for save thumnail image
-    $thumbnailPath = 'public/thumbnail/';
-    $ImageUpload->resize(250,125);
-    $ImageUpload = $ImageUpload->save($thumbnailPath.time().$files->getClientOriginalName());
- 
-  $photo = new Photo();
-  $photo->photo_name = time().$files->getClientOriginalName();
-  $photo->save();
-  }
- 
-  $image = Photo::latest()->first(['photo_name']);
-  return Response()->json($image);
- 
- 
-}
+    public function index()
+    {
+
+      return view('images');
+    }
+
+    public function storeImage(Request $request)
+    {
+        $request->validate([
+          'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $image = new Image;
+
+        if ($request->file('file')) {
+            $imagePath = $request->file('file');
+            $imageName = $imagePath->getClientOriginalName();
+
+            $path = $request->file('file')->storeAs('uploads', $imageName, 'public');
+        }
+
+        $image->name = $imageName;
+        $image->path = '/storage/'.$path;
+        $image->save();
+
+        return response()->json('Image uploaded successfully');
+    }
 }

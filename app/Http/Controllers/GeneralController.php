@@ -21,7 +21,7 @@ class GeneralController extends Controller
                 ]);
                 $extension = $request->image->extension();
                 $request->image->storeAs('/public', $validated['name'].".".$extension);
-                $url = Storage::url("app/public/".$validated['name'].".".$extension);
+                $url = Storage::url("/public".$validated['name'].".".$extension);
                 $file = File::create([
                    'name' => $validated['name'],
                     'url' => $url,

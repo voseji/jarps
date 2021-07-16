@@ -20,37 +20,46 @@
         </div>
      <---------------Menus-------------------->
      @include('admin_menus')
-     
+     @foreach ($users2 as $user2)
+                    @endforeach  
         <div class="page-wrapper ">
             <div class="content ">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-1">
-                        <h4 class="page-title">Create New Candidate</h4>
+                        <h4 class="page-title">Editing <b>{{ $user2->firstname}}'s</b> Information</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-1">
                     @if(session()->has('status'))
-   <div class="alert alert-success alert-dismissible fade show" role="alert">
+   
+      
+
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
   <strong>{{ session()->get('status') }}
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
-  </div>
+                </div>
 @endif
-                    <form  action = "/create" method = "post" class="form-group" style="width:100%; " >
-                           
-                    <div class="row">
-                                <div class="col-sm-13">
-                                
 
-                                    <div class="form-group">
+                    <form  action = "/edit" method = "post" class="form-group" style="width:100%; " >
+                    
+
+                    <div class="row">
+                                <div class="col-sm-6">
+                               <div class="form-group">
                                         <label>Form Number <span class="text-danger">*</span></label>
-                                        
-                                        <input type="text" class="form-control" placeholder="Form Number" name="form_number" required>
-                                        
-                                    </div>
-                                    </div>
+                                      <input type="text" class="form-control" value="{{ $user2->form_number}}" name="form_number" required>
+                                     </div>
+                                 </div>
+
+                                 <div class="col-sm-6">
+                               <div class="form-group">
+                                        <label>Registration Number <span class="text-danger">*</span></label>
+                                      <input type="text" class="form-control" value="{{ $user2->id}}" name="form_number" required readonly>
+                                     </div>
+                                 </div>
 
                             <div class="row">
                                 <div class="col-sm-6">
@@ -59,40 +68,40 @@
                                     <div class="form-group">
                                         <label>First Name <span class="text-danger">*</span></label>
                                         
-                                        <input type="text" class="form-control" placeholder="First Name" name="firstname" required>
+                                        <input type="text" class="form-control" value="{{ $user2->firstname}}" name="firstname" required>
                                         
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Last Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Last Name" name="lastname" required>
+                                        <input type="text" class="form-control" value="{{ $user2->lastname}}" name="lastname" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Other names </label>
-                                        <input type="text" class="form-control" placeholder="Other Names" name="othernames" >
+                                        <input type="text" class="form-control" value="{{ $user2->othernames}}" name="othernames" >
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Email <span class="text-danger">*</span></label>
-                                        <input class="form-control" type="email" placeholder="Email" name="email" required>
+                                        <input class="form-control" type="email" value="{{ $user2->email}}" name="email" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input type="tel" class="form-control" placeholder="Phone Number"  name="phone_number" required>
+                                        <input type="tel" class="form-control" value="{{ $user2->phone_number}}"  name="phone_number" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Alternate Phone Number</label>
-                                        <input type="tel" class="form-control" placeholder="Alternate Phone Number"  name="alternate_phone_number" required>
+                                        <input type="tel" class="form-control" value="{{ $user2->alternate_phone_number}}"  name="alternate_phone_number" required>
                                     </div>
                                 </div>
                                 
@@ -100,29 +109,28 @@
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <div class="cal-icon">
-                                            <input type="text" id="date_of_birth" name="date_of_birth" class="form-control datetimepicker" required>
+                                            <input type="text" id="date_of_birth" value="{{ $user2->date_of_birth}}" name="date_of_birth" class="form-control datetimepicker" required>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
-                                    
-                                </div>
-
-                                <div class="col-sm-6">
+                                
 											<div class="form-group">
 												<label>State of Origin</label>
 												<select id='sel_depart' name='sel_depart' class="form-control" required>
        <option value='0'>-- Select State --</option>
  
        <!-- Read Departments -->
-       @foreach($departmentData['data'] as $department)
-         <option value='{{ $department->id }}'>{{ $department->name }}</option>
-       @endforeach
+       
 
     </select>
 											</div>
-                                            </div>
+                                            
+                                </div>
+
+                             
+
 
                                             <div class="col-sm-6">
 											<div class="form-group">
@@ -173,16 +181,16 @@
 									</div>
                                     
                                 </div>
-								<div class="col-sm-12">
+								<div class="col-sm-13">
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group">
 												<label>Address</label>
                                                 <textarea class="form-control" name="residential_address" required></textarea>
-												<input type="hidden" id="created_by" name="created_by" class="form-check-input" value="{{ Auth::user()->email }}">
+												<input type="hidden" id="created_by" name="created_by" class="form-check-input" value="{{ $user2->residential_address}}">
 											</div>
 										</div>
-										
+                                        	
 										
 									</div>
 								</div>
@@ -200,6 +208,7 @@
                             </div>
                            
                         </form>
+                        
                     </div>
                 </div>
             </div>

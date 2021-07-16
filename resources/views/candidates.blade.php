@@ -29,7 +29,7 @@
                         <h4 class="page-title">Candidates</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
-                        <a href="add-patient.html" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Patient</a>
+                        <a href="new-candidate" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Create New Candidate</a>
                     </div>
                 </div>
 				<div class="row">
@@ -63,8 +63,8 @@
 										<td class="text-right">
 											<div >
 												
-													<a class="dropdown-item" href="edit-candidate"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item" href="candidate-view"  ><i class="fa fa-print"></i> Print</a>
+													<a class="dropdown-item" href="candidate-edit?id={{ $user->id }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item" href="candidate-view?id={{ $user->id }}"  ><i class="fa fa-print"></i> Print</a>
 												
 											</div>
 										</td>
