@@ -69,4 +69,10 @@ Route::get('/getEmployees/{id}', 'DepartmentsController@getEmployees');
 Route::view('/file-upload', 'upload');
 Route::post('/file-upload', 'GeneralController@store');
 Route::get('/view-uploads', 'GeneralController@viewUploads');
-//Route::get('/candidate-view', 'GeneralController@viewUploads2');
+Route::get('/view_uploads', 'GeneralController@viewUploads2');
+
+
+use App\Http\Controllers\ImageUploadController;
+ 
+Route::get('image-upload-preview', [ImageUploadController::class, 'index']);
+Route::post('upload-image', [ImageUploadController::class, 'store']);

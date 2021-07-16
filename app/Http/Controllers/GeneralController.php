@@ -20,7 +20,7 @@ class GeneralController extends Controller
                     'image' => 'mimes:jpeg,png|max:1014',
                 ]);
                 $extension = $request->image->extension();
-                $request->image->storeAs('app/public', $validated['name'].".".$extension);
+                $request->image->storeAs('/public', $validated['name'].".".$extension);
                 $url = Storage::url("app/public/".$validated['name'].".".$extension);
                 $file = File::create([
                    'name' => $validated['name'],
@@ -40,7 +40,7 @@ class GeneralController extends Controller
 
     public function viewUploads2 () {
         $images = File::all();
-        return view('candidate-view')->with('images', $images);
+        return view('view_uploads')->with('images', $images);
     }
 
     

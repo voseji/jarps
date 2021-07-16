@@ -88,7 +88,14 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input type="phone_number" class="form-control" placeholder="Phone Number"  name="phone_number" required>
+                                        <input type="tel" class="form-control" placeholder="Phone Number"  name="phone_number" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Alternate Phone Number</label>
+                                        <input type="tel" class="form-control" placeholder="Alternate Phone Number"  name="alternate_phone_number" required>
                                     </div>
                                 </div>
                                 
@@ -99,6 +106,10 @@
                                             <input type="text" id="date_of_birth" name="date_of_birth" class="form-control datetimepicker">
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    
                                 </div>
 
                                 <div class="col-sm-6">
@@ -163,7 +174,7 @@
 										</div>
 
 									</div>
-
+                                    
                                 </div>
 								<div class="col-sm-12">
 									<div class="row">
@@ -171,7 +182,7 @@
 											<div class="form-group">
 												<label>Address</label>
                                                 <textarea class="form-control" name="residential_address"></textarea>
-												
+												<input type="hidden" id="created_by" name="created_by" class="form-check-input" value="{{ Auth::user()->email }}">
 											</div>
 										</div>
 										

@@ -10,6 +10,20 @@
 @include('auth/head')
 
 <body>
+<script>
+   function printDiv(print) {
+     var printContents = document.getElementById('print').innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+        </script>
+
+
     <div class="main-wrapper">
     @include('site_name')
 			</div>
@@ -28,9 +42,9 @@
                     </div>
                     <div class="col-sm-9 col-9 m-b-30">
                         <div class="btn-group btn-group-sm">
-                            <button class="btn btn-white">CSV</button>
-                            <button class="btn btn-white">PDF</button>
-                            <button class="btn btn-white"><i class="fa fa-print fa-lg"></i> Print</button>
+                            
+                            
+                            <button class="btn btn-white" onclick="printDiv('card-print')"><i class="fa fa-print fa-lg"></i> Print</button>
                         </div>
                     </div>
                 </div>
@@ -43,9 +57,9 @@
                                     @endforeach
 
 
-                <div class="row">
+                <div class="row" >
                     <div class="col-md-9">
-                        <div class="card">
+                        <div class="card" id="print">
                             <div class="card-body">
                             <img style="display: block;
   margin-left: auto;
@@ -63,7 +77,8 @@
                                     </div>
                                     <div class="col-6 col-sm-6 m-b-20">
                                         <div class="invoice-details">
-                                        <h4>Form #: {{ $user->form_number}}</h4>
+                                       
+                                        
                                         
                                             <ul class="list-unstyled">
                                                 
@@ -73,6 +88,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6 col-lg-6 m-b-20">
+                                    <table width="200%">
+                                        <tr>
+                                        <td style="text-align:right"><h3>Form #: {{ $user->form_number}}</h3></td>
+                                        </tr>
+                                        </table>
 										<table width="200%" border="1">
                                         <tr>
 											<td colspan="2"><h5>Registration Number:</h5> <h3 class="text-uppercase">{{ $user->id}}</h3></td>
@@ -101,20 +121,20 @@
                                             
                                             <td><h5>Contact Number:</h5> <h3 class="text-uppercase">{{ $user->phone_number}}</h3></td>
                                             
-                                            <td><h5>Alternate Contact Number:</h5> <h3 class="text-uppercase">{{ $user->date_of_birth}}</h3></td>
+                                            <td><h5>Alternate Contact Number:</h5> <h3 class="text-uppercase">{{ $user->alternate_phone_number}}</h3></td>
                                             </tr>
                                             
 
-                                            <tr colspan="2">
-                                            <td><h5>State of Origin:</h5> <h3 class="text-uppercase">{{ $user->state_of_origin}}</h3></td>
+                                            <tr >
+                                            <td><h5>State of Origin:</h5> <h3 class="text-uppercase">{{ $user->name}}</h3></td>
                                             
-                                            <td><h5>LGA of Origin:</h5> <h3 class="text-uppercase">{{ $user->lga_of_origin}}</h3></td>
-                                            
-                                           
+                                            <td> <h5>LGA of Origin:</h5> <h3 class="text-uppercase">{{ $user->lga}}</h3></td>
+                                        
+                                           <td></td>
                                             </tr>
 
                                             <tr>
-                                            <td colspan="3"><h5>Residential Address:</h5> <h3 class="text-uppercase">{{ $user->residential_address}}</h3></td>
+                                            <td colspan="3"><h5>Residential Address:</h5> <h6 class="text-uppercase">{{ $user->residential_address}}</h6></td>
                                             
                                             
                                            
@@ -151,6 +171,9 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>
     <script src="assets/js/app.js"></script>
+    <sript >
+ 
+</script>
 </body>
 
 
