@@ -23,7 +23,7 @@
                         <div class="dash-widget">
                             
                             <div >
-                                <h3>72</h3>
+                                <h3></h3>
                                 <span class="widget-title3">Total Candidates Captured </span>
                             </div>
                         </div>
@@ -32,8 +32,8 @@
                         <div class="dash-widget">
                             
                             <div >
-                                <h3>618</h3>
-                                <span class="widget-title4">Pending </span>
+                                <h3></h3>
+                                <span class="widget-title4">No Passport </span>
                             </div>
                         </div>
                     </div>

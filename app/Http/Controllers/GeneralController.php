@@ -20,28 +20,26 @@ class GeneralController extends Controller
                     'image' => 'mimes:jpeg,png|max:1014',
                 ]);
                 $extension = $request->image->extension();
-                $request->image->storeAs('/public', $validated['name'].".".$extension);
-                $url = Storage::url("/public".$validated['name'].".".$extension);
+                $request->image->storeAs('public/storage', $validated['name'].".".$extension);
+                $url = Storage::url($validated['name'].".".$extension);
                 $file = File::create([
                    'name' => $validated['name'],
                     'url' => $url,
                 ]);
-                Session::flash('success', "Success!");
+                Session::flash('success', "Passport uploaded successfully. ");
                 return \Redirect::back();
             }
         }
         abort(500, 'Could not upload image :(');
     }
 
-    public function viewUploads () {
-        $images = File::all();
-        return view('view_uploads')->with('images', $images);
-    }
-
-    public function viewUploads2 () {
-        $images = File::all();
-        return view('view_uploads')->with('images', $images);
-    }
+ 
+    public function edit(Request $request,$id) {
+        $name = $request->input('stud_name');
+        DB::update('update student set name = ? where id = ?',[$name,$id]);
+        echo "Record updated successfully.<br/>";
+        echo '<a href = "/edit-records">Click Here</a> to go back.';
+     }
 
     
 }

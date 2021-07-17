@@ -96,7 +96,7 @@
 										<table width="200%" border="1">
                                         <tr>
 											<td colspan="2"><h5>Registration Number:</h5> <h3 class="text-uppercase">{{ $user->id}}</h3></td>
-											<td>Passport:
+											<td style="text-align:center">Passport: <br/><img src="{{ URL::to('/') }}/images/1.jpg" width="150px" height="150px"/>
                                           
                                             </td>
                                             </tr>

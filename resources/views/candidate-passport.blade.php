@@ -70,16 +70,30 @@
                                 <div class="profile-img-wrap">
                                 
                                     <div class="profile-img">
-                                        <a href="#"><img class="avatar" src="assets/img/passport.png" alt=""></a>
+                                        
                                     </div>
                                 </div>
                                 <div class="profile-basic">
                                     <div class="row">
                                         <div class="col-md-9">
-                                        <form method="POST" enctype="multipart/form-data" id="upload-image" action="{{ url('upload-image') }}" >   
-                                            
+                                        @php
+										$Mynumb = rand(0, 1000000000000);
+                                        $show = $Mynumb ;
+										@endphp
+                                        <form class="m-2" method="post" action="/file-upload" enctype="multipart/form-data">
+            @csrf   
+            @if(Session::has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+        {{ Session('success') }}
+        
+    </div>
+    <div class="staff-msg"><a href="new-candidate" class="btn btn-primary" style="color:background-color:green" >Fresh Registration</a></div> 
+@endif
                                         </div>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
 									<div class="form-group">
 										<label>Upload Passport</label>
 										<div class="profile-upload">
@@ -88,14 +102,16 @@
                                                 
 											</div>
 											<div class="upload-input">
+                                            <input type="hidden" class="form-control" id="name" value="{{ $Mynumb }}" name="name">
 												<input type="file" class="form-control" name="image" placeholder="Choose image" id="image">
                                                 
-                        @error('image')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
+                        
                                                 <div class="staff-msg"><button type="submit" class="btn btn-primary" id="submit">Submit</button></div> 
-											</div>
-                                            
+											
+                                                
+
+                                            </div>
+                                            @include('components.errors')
 										</div>
                                       </form>
                                     </div>

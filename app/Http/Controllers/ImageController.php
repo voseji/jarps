@@ -10,7 +10,7 @@ class ImageController extends Controller
     public function index()
     {
 
-      return view('images');
+      return view('candidate-passport');
     }
 
     public function storeImage(Request $request)
@@ -25,13 +25,14 @@ class ImageController extends Controller
             $imagePath = $request->file('file');
             $imageName = $imagePath->getClientOriginalName();
 
-            $path = $request->file('file')->storeAs('uploads', $imageName, 'public');
+            $path = $request->file('file')->storeAs('images', $imageName, 'public');
         }
 
         $image->name = $imageName;
-        $image->path = '/storage/'.$path;
+        $image->path = '/images'.$path;
         $image->save();
 
-        return response()->json('Image uploaded successfully');
+        return view('candidate-passport')->with('status', 'Candidate succeffully added');
+        //return response()->json('Image uploaded successfully');
     }
 }
