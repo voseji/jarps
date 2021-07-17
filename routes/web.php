@@ -42,9 +42,14 @@ Route::get('enrol', function () {
    return view('candidate-view');
 });
 
+Route::get('candidate-passport', function () {
+   return view('candidate-passport');
+});
 
 
-
+Route::get('candidate-check', function () {
+   return view('candidate-check');
+});
 
 
 Auth::routes();
@@ -60,8 +65,9 @@ Route::post('/register', 'Auth\AuthController@storeUser');
 //route for inserting candidates records
 Route::get('insert','StudInsertController@insertform');
 Route::post('create','StudInsertController@insert');
-//Route::get('candidate-passport','ImageController@storeImage');
+//Route::view('candidate-passport','StudInsertController@insertform2');
 
+Route::post('check','SearchController@check');
 
 //Route for viewing canidates records
 Route::get('candidates','StudViewController@index');
@@ -75,11 +81,10 @@ Route::get('/getEmployees/{id}', 'DepartmentsController@getEmployees');
 //Route for uploading passport
 Route::view('/file-upload', 'candidate-passport');
 Route::post('/file-upload', 'GeneralController@store');
-Route::get('/view-uploads', 'GeneralController@viewUploads');
+//Route::get('/view-uploads', 'GeneralController@viewUploads');
 
 
 
-Route::get('candidate-passport', 'ImageController@index');
-Route::post('candidate-passport', 'ImageController@storeImage');
+
 
 Route::get('candidate-edit/{$id}', 'UserNavigate@special');

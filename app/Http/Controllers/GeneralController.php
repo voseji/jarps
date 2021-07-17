@@ -34,12 +34,7 @@ class GeneralController extends Controller
     }
 
  
-    public function edit(Request $request,$id) {
-        $name = $request->input('stud_name');
-        DB::update('update student set name = ? where id = ?',[$name,$id]);
-        echo "Record updated successfully.<br/>";
-        echo '<a href = "/edit-records">Click Here</a> to go back.';
-     }
+  
 
     
 }
