@@ -7,7 +7,7 @@
 							
 							
 						</span>
-						<span>Welcome back {{ Auth::user()->name }}</span>
+						<span>Welcome back <b>{{ Auth::user()->name }}</b></span>
                     </a>
 					<div class="dropdown-menu">
 						

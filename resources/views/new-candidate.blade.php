@@ -96,7 +96,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input type="tel" class="form-control" placeholder="Phone Number" style="text-transform: uppercase;" name="phone_number" required>
+                                        <input type="tel" max="11" class="form-control" placeholder="Phone Number" style="text-transform: uppercase;" name="phone_number" required>
                                     </div>
                                 </div>
 
@@ -111,7 +111,7 @@
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <div class="cal-icon">
-                                            <input type="text" id="date_of_birth" name="date_of_birth" class="form-control datetimepicker" required>
+                                            <input type="text" max="1979-12-31" id="date_of_birth" name="date_of_birth" class="form-control datetimepicker" required>
                                         </div>
                                     </div>
                                 </div>

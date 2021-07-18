@@ -64,7 +64,7 @@
   margin-right: auto;
   
 " src="images/fctlogo.png" class="inv-logo" alt="FCT SONM">
-                            <h2 style="text-align:center">Federal Capital Territory</h2>
+                            <h2 style="text-align:center">Federal Capital Territory Administration</h2>
                             <h3 style="text-align:center">Schools of Nursing and Midwifery, Gwagalada</h3>
                             <h4 style="text-align:center"><u>2021 Basic Midwifery Admission</u></h4>
                                 <div class="row custom-invoice">
@@ -112,7 +112,7 @@
                                             
                                             <td><h5>Marital Status:</h5> <h3 class="text-uppercase">{{ $user->marital_status}}</h3></td>
                                             
-                                            <td><h5>Othernames:</h5> <h3 class="text-uppercase">{{ $user->date_of_birth}}</h3></td>
+                                            <td><h5>Date of Birth:</h5> <h3 class="text-uppercase">{{ $user->date_of_birth}}</h3></td>
                                             </tr>
 
                                             <tr>
@@ -144,11 +144,11 @@
                                     <div class="invoice-info">
                                         <h5>Important information</h5>
                                         <p class="text-muted">
-                                        1. Kindly make sure you come with this registration slip to the exam at all times<br/>
-                                        2. Ensure you wear a facemask. Candidates not observing COVID-19 protocols will be disallowed from entering the exam hall<br/>
-                                        3. For enquiries or complaints call: 08082775076‬<br/>
-                                        4. Exam dates will be communicated via these facebook channels: https://facebook.com/sonm
+                                        For enquiries about application and examination dates, please call <b>07064221237</b> OR Email: <b>fctsonenquiry@gmail.com</b>. Follow us on our facebook page fb.me/fctson<br/>
+                                        <b>Telegram link: https://rb.gy/gqzqps</b><br/>
+                                        <b>WhatsApp: 08082775076</b>
                                         </p>
+                                        <footer style="text-align:right; font-size:11px">Date Printed: @php echo date('d-m-Y') @endphp</footer>
                                     </div>
                                 </div>
                             </div>

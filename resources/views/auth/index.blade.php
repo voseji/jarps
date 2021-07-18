@@ -50,9 +50,7 @@
                             {{ __('Login') }}
                             </button>
                         </div>
-                        <div class="text-center register-link">
-                            Don’t have an account? <a href="register">Register Now</a>
-                        </div>
+                        
                     </form>
                 </div>
 			</div>

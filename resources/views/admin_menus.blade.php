@@ -25,9 +25,9 @@
                         <li class="submenu">
 							<a href="#"><i class="fa fa-book"></i> <span> Report </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="employees.html">Reprint Slip</a></li>
-								<li><a href="leaves.html">Download Report</a></li>
-								<li><a href="holidays.html">Check Batch</a></li>
+								<li><a href="">Reprint Slip</a></li>
+								<li><a href="">Download Report</a></li>
+								<li><a href="">Check Batch</a></li>
 								
 							</ul>
 						</li>
@@ -36,7 +36,7 @@
 							<a href="#"><i class="fa fa-user"></i> <span> Manage Users </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="new-user">New User</a></li>
-								<li><a href="leaves.html">Edit User</a></li>
+								<li><a href="">Edit User</a></li>
 								
 							</ul>
                         </li>

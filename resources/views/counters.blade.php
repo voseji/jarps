@@ -5,7 +5,7 @@
                         <div class="dash-widget">
 							<span ></span>
 							<div >
-								<h3>98</h3>
+								<h3></h3>
 								<span class="widget-title1">Total Registered Today </span>
 							</div>
                         </div>
@@ -14,7 +14,7 @@
                         <div class="dash-widget">
                            
                             <div >
-                                <h3>1072</h3>
+                                <h3></h3>
                                 <span class="widget-title2">Total Registered Till Date </span>
                             </div>
                         </div>
