@@ -43,14 +43,16 @@ class StudInsertController extends Controller
         $form_number = $request->input('form_number');
         $nationality = $request->input('nationality');
         $created_by = $request->input('created_by');
+        $special = $request->input('special');
 
-        $data=array('firstname'=>$firstname,"lastname"=>$lastname,"othernames"=>$othernames,"email"=>$email,"date_of_birth"=>$date_of_birth,"gender"=>$gender, "marital_status"=>$marital_status, "phone_number"=>$phone_number, "alternate_phone_number"=>$alternate_phone_number, "state_of_origin"=>$state_of_origin, "lga_of_origin"=>$lga_of_origin, "form_number"=>$form_number, "nationality"=>$nationality,"created_by"=>$created_by);
+        $data=array('firstname'=>$firstname,"lastname"=>$lastname,"othernames"=>$othernames,"email"=>$email,"date_of_birth"=>$date_of_birth,"gender"=>$gender, "marital_status"=>$marital_status, "phone_number"=>$phone_number, "alternate_phone_number"=>$alternate_phone_number, "state_of_origin"=>$state_of_origin, "lga_of_origin"=>$lga_of_origin, "form_number"=>$form_number, "nationality"=>$nationality,"created_by"=>$created_by,"special"=>$special);
         DB::table('candidates')->insert($data);
         $users = DB::table('candidates')
         ->select('candidates.form_number')->where ('candidates.form_number', '=', $form_number)
         ->get();
         Session::put('users', $users);
-        return redirect()->route('candidate-passport',['users'=>$users]);
+        Session::put('special', $special);
+        return redirect()->route('candidate-passport',['users'=>$users, 'special'=>$special]);
         //return back()->with('status', 'Candidate successfully added');
         //return redirect()->route('candidate-passport')->with('status', 'Candidate succeffully added');
         //return view('candidate-passport')->with('status', 'Candidate succeffully added');

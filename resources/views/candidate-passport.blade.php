@@ -100,16 +100,13 @@
 											</div>
 											<div class="upload-input">
                                             @if(Session::has('users'))
-                                            <input type="text" width="100%" class="form-control" name="name" value="{{Session::get('users') }}" id="name">
-                                            
+                                            <input type="hidden" width="100%" class="form-control" name="name" value="{{Session::get('users') }}" id="name">
                                             @endif
-                                            @php
-										$Mynumb = rand(0, 1000000000000);
-                                        $show = $Mynumb ;
-										@endphp
-                                            
-                                            <input type="text" class="form-control" id="special" value="{{ $Mynumb }}" name="special">
-												<input type="file" class="form-control" name="image" placeholder="Choose image" id="image">
+                                            @if(Session::has('users'))
+										    <input type="hidden" class="form-control" id="special" value="{{Session::get('special') }}" name="special">
+											@endif
+
+                                            <input type="file" class="form-control" name="image" placeholder="Choose image" id="image">
                                                 
                         
                                                 <div class="staff-msg"><button type="submit" class="btn btn-primary" id="submit">Submit</button></div> 

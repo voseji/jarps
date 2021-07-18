@@ -42,7 +42,13 @@
   </div>
 @endif
                     <form id="register"  action = "/create" method = "post" class="form-group" style="width:100%; " >
-                           
+                    @php
+										$Mynumb = rand(0, 1000000000000);
+                                        $show = $Mynumb ;
+										@endphp
+                                            
+                                            <input type="hidden" class="form-control" id="special" value="{{ $Mynumb }}" name="special">
+												    
                     <div class="row">
                                 <div class="col-sm-13">
                                 
