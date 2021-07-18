@@ -41,7 +41,7 @@
   </button>
   </div>
 @endif
-                    <form id="register"  action = "/file-upload" method = "post" class="form-group" style="width:100%; " >
+                    <form id="register"  action = "/create" method = "post" class="form-group" style="width:100%; " >
                            
                     <div class="row">
                                 <div class="col-sm-13">
@@ -439,32 +439,8 @@
                                 
 								</div>
                                
-                                
-                                <div class="col-sm-12">
-									<div class="form-group">
-										<label>Upload Passport</label>
-										<div class="profile-upload">
-											<div class="upload-img">
-												<img alt="" src="assets/img/user.jpg">
-                                                
-											</div>
-											<div class="upload-input">
-                                            @php
-										$Mynumb = rand(0, 1000000000000);
-                                        $show = $Mynumb ;
-										@endphp
-                                            
-                                            <input type="text" class="form-control" id="name" value="{{ $Mynumb }}" name="name">
-												<input type="file" class="form-control" name="image" placeholder="Choose image" id="image">
-                                                
-                        
-                                               
-											
-                                                
-
-                                            </div>
-                                            @include('components.errors')
-										</div>
+                               
+			
                                       
 
 

@@ -30,7 +30,7 @@ class GeneralController extends Controller
                 ]);
                 Session::put('pp', "Passport uploaded successfully. ");
                 //return \Redirect::back();
-                return view('new-candidate');
+                return view('home');
             }
         }
         abort(500, 'Could not upload image :(');
