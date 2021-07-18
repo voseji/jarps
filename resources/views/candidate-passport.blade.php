@@ -99,19 +99,16 @@
                                                 
 											</div>
 											<div class="upload-input">
-<<<<<<< Updated upstream
                                             @if(Session::has('users'))
-                                            <input type="text" width="100%" class="form-control" name="name" value="{{Session::get('users') }}" id="image">
+                                            <input type="text" width="100%" class="form-control" name="name" value="{{Session::get('users') }}" id="name">
                                             
                                             @endif
-=======
                                             @php
 										$Mynumb = rand(0, 1000000000000);
                                         $show = $Mynumb ;
 										@endphp
-                                            <input type="text" class="form-control" id="name" value="{{ request('special') }}" name="name">
->>>>>>> Stashed changes
-                                            <input type="hidden" class="form-control" id="special" value="{{ $Mynumb }}" name="special">
+                                            
+                                            <input type="text" class="form-control" id="special" value="{{ $Mynumb }}" name="special">
 												<input type="file" class="form-control" name="image" placeholder="Choose image" id="image">
                                                 
                         

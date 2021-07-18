@@ -28,24 +28,16 @@ class GeneralController extends Controller
                     'url' => $url,
                     'special' => $special,
                 ]);
-                Session::flash('success', "Passport uploaded successfully. ");
+                Session::put('pp', "Passport uploaded successfully. ");
                 //return \Redirect::back();
-                return view('candidates');
+                return view('new-candidate');
             }
         }
         abort(500, 'Could not upload image :(');
     }
 
  
-<<<<<<< Updated upstream
   
-=======
-
-    public function viewUploads2 () {
-        $images = File::all();
-        return view('candidate-passport')->with('images', $images);
-    }
->>>>>>> Stashed changes
 
     
 }

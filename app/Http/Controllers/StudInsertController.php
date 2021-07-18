@@ -19,13 +19,8 @@ class StudInsertController extends Controller
         return view('new-candidate');
         
         }
-<<<<<<< Updated upstream
        
         
-=======
-
-      
->>>>>>> Stashed changes
          
 
             public function store (Request $request) {
@@ -74,16 +69,10 @@ class StudInsertController extends Controller
 
         $data=array('firstname'=>$firstname,"lastname"=>$lastname,"othernames"=>$othernames,"email"=>$email,"date_of_birth"=>$date_of_birth,"gender"=>$gender, "marital_status"=>$marital_status, "phone_number"=>$phone_number, "alternate_phone_number"=>$alternate_phone_number, "state_of_origin"=>$state_of_origin, "lga_of_origin"=>$lga_of_origin, "form_number"=>$form_number, "nationality"=>$nationality,"created_by"=>$created_by);
         DB::table('candidates')->insert($data);
-<<<<<<< Updated upstream
         return back()->with('status', 'Candidate successfully added');
         //return redirect()->route('candidate-passport')->with('status', 'Candidate succeffully added');
         //return view('candidate-passport')->with('status', 'Candidate succeffully added');
         //return view('candidate-passport');
-=======
-        
-        //return view('candidate-passport','status', 'Candidate succeffully added');
-        return view('candidate-passport')->with('status', 'Candidate succeffully added');
->>>>>>> Stashed changes
       
            // $users = DB::select('select * from candidates where phone_no=$phone');
            //$users = DB::table('candidates')->where('phone_number', '=', $phone_number)->get();

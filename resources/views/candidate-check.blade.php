@@ -77,22 +77,9 @@
                                 <div class="profile-basic">
                                     <div class="row">
                                         <div class="col-md-9">
-                                        @php
-										$Mynumb = rand(0, 1000000000000);
-                                        $show = $Mynumb ;
-										@endphp
+                  
                                         <form class="m-2" method="post" action="/check" enctype="multipart/form-data">
             @csrf   
-            @if(Session::has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-        {{ Session('success') }}
-        
-    </div>
-    <div class="staff-msg"><a href="new-candidate" class="btn btn-primary" style="color:background-color:green" >Fresh Registration</a></div> 
-@endif
                                         </div>
                                         <div class="col-sm-12">
 									<div class="form-group">
@@ -102,7 +89,7 @@
 											<div class="upload-input">
                                             
                                                 
-                                            <input type="hidden" class="form-control" id="name" value="{{ $Mynumb }}" name="name">
+                                            
 												<input type="text" width="100%" class="form-control" name="reg_number" placeholder="Enter" id="image">
                                                 
                         
