@@ -10,6 +10,6 @@ class File extends Model
 {
     //
     protected $fillable = [
-        'name', 'url',
+        'name', 'url', 'special',
     ];
 }

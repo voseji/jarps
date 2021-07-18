@@ -22,12 +22,15 @@ class GeneralController extends Controller
                 $extension = $request->image->extension();
                 $request->image->storeAs('public/storage', $validated['name'].".".$extension);
                 $url = Storage::url($validated['name'].".".$extension);
+                $special = $request->input('special');
                 $file = File::create([
                    'name' => $validated['name'],
                     'url' => $url,
+                    'special' => $special,
                 ]);
                 Session::flash('success', "Passport uploaded successfully. ");
-                return \Redirect::back();
+                //return \Redirect::back();
+                return view('candidates');
             }
         }
         abort(500, 'Could not upload image :(');

@@ -68,6 +68,8 @@ Route::post('create','StudInsertController@insert');
 //Route::view('candidate-passport','StudInsertController@insertform2');
 
 Route::post('check','SearchController@check');
+//Route::get('/candidate-passport','SearchController@check');
+Route::get('/candidate-passport', 'SearchController@check2') -> name('candidate-passport');
 
 //Route for viewing canidates records
 Route::get('candidates','StudViewController@index');

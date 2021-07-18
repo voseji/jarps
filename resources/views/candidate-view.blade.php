@@ -50,11 +50,7 @@
                 </div>
 
                 @foreach ($users as $user)
-                                    
-                                   
-
-                                    
-                                    @endforeach
+                @endforeach
 
 
                 <div class="row" >

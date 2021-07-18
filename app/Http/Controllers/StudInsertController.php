@@ -15,10 +15,7 @@ class StudInsertController extends Controller
         
         }
        
-        public function insertform2(){
-            return view('candidate-passport');
-            
-            }
+        
          
         public function insert(Request $request){
            // $message = "Hello World!";
@@ -35,10 +32,10 @@ class StudInsertController extends Controller
         $state_of_origin = $request->input('sel_depart');
         $lga_of_origin = $request->input('sel_emp');
         $form_number = $request->input('form_number');
-        $residential_address = $request->input('residential_address');
+        $nationality = $request->input('nationality');
         $created_by = $request->input('created_by');
 
-        $data=array('firstname'=>$firstname,"lastname"=>$lastname,"othernames"=>$othernames,"email"=>$email,"date_of_birth"=>$date_of_birth,"gender"=>$gender, "marital_status"=>$marital_status, "phone_number"=>$phone_number, "alternate_phone_number"=>$alternate_phone_number, "state_of_origin"=>$state_of_origin, "lga_of_origin"=>$lga_of_origin, "form_number"=>$form_number, "residential_address"=>$residential_address,"created_by"=>$created_by);
+        $data=array('firstname'=>$firstname,"lastname"=>$lastname,"othernames"=>$othernames,"email"=>$email,"date_of_birth"=>$date_of_birth,"gender"=>$gender, "marital_status"=>$marital_status, "phone_number"=>$phone_number, "alternate_phone_number"=>$alternate_phone_number, "state_of_origin"=>$state_of_origin, "lga_of_origin"=>$lga_of_origin, "form_number"=>$form_number, "nationality"=>$nationality,"created_by"=>$created_by);
         DB::table('candidates')->insert($data);
         return back()->with('status', 'Candidate successfully added');
         //return redirect()->route('candidate-passport')->with('status', 'Candidate succeffully added');

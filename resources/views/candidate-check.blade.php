@@ -42,7 +42,8 @@
                         <h4 class="page-title">Upload Passport</h4>
                         
                      
-                    
+                        
+
                     <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                     
   
@@ -99,6 +100,8 @@
 										<div class="profile-upload">
 											
 											<div class="upload-input">
+                                            
+                                                
                                             <input type="hidden" class="form-control" id="name" value="{{ $Mynumb }}" name="name">
 												<input type="text" width="100%" class="form-control" name="reg_number" placeholder="Enter" id="image">
                                                 
