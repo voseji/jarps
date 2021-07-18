@@ -37,7 +37,15 @@ class GeneralController extends Controller
     }
 
  
+<<<<<<< Updated upstream
   
+=======
+
+    public function viewUploads2 () {
+        $images = File::all();
+        return view('candidate-passport')->with('images', $images);
+    }
+>>>>>>> Stashed changes
 
     
 }

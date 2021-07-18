@@ -9,7 +9,7 @@
 
 @include('auth/head')
 
-<body>
+<body >
     <div class="main-wrapper">
     @include('site_name')
 			</div>
@@ -26,6 +26,9 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-1">
                         <h4 class="page-title">Create New Candidate</h4>
+
+                                       
+
                     </div>
                 </div>
                 <div class="row">
@@ -38,13 +41,14 @@
   </button>
   </div>
 @endif
-                    <form  action = "/create" method = "post" class="form-group" style="width:100%; " >
+                    <form id="register"  action = "/file-upload" method = "post" class="form-group" style="width:100%; " >
                            
                     <div class="row">
                                 <div class="col-sm-13">
                                 
                                 <input class="form-control" type="hidden" style="text-transform: lowercase;"  value="{{ Auth::user()->name }}" placeholder="Email" name="created_by" >
                                     <div class="form-group">
+                                    
                                         <label>Form Number <span class="text-danger">*</span></label>
                                         
                                         <input type="text" class="form-control" placeholder="Form Number" name="form_number" required>
@@ -435,11 +439,38 @@
                                 
 								</div>
                                
+                                
+                                <div class="col-sm-12">
+									<div class="form-group">
+										<label>Upload Passport</label>
+										<div class="profile-upload">
+											<div class="upload-img">
+												<img alt="" src="assets/img/user.jpg">
+                                                
+											</div>
+											<div class="upload-input">
+                                            @php
+										$Mynumb = rand(0, 1000000000000);
+                                        $show = $Mynumb ;
+										@endphp
+                                            
+                                            <input type="text" class="form-control" id="name" value="{{ $Mynumb }}" name="name">
+												<input type="file" class="form-control" name="image" placeholder="Choose image" id="image">
+                                                
+                        
+                                               
+											
+                                                
+
+                                            </div>
+                                            @include('components.errors')
+										</div>
+                                      
+
+
                                 <div class="col-sm-9">
-									
-                                        
-                                        <div class="m-t-20 text-center">
-                                <button class="btn btn-primary submit-btn">Save and Continue...</button>
+								<div class="m-t-20 text-center">
+                                <button id="submit" class="btn btn-primary submit-btn">Save and Continue...</button>
                             </div>
 									</div>
                                 </div>
@@ -532,6 +563,8 @@ $(document).ready(function (e) {
 });
  
 </script>
+
+
 
 </body>
 
