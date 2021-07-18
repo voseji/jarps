@@ -46,7 +46,12 @@ class StudInsertController extends Controller
 
         $data=array('firstname'=>$firstname,"lastname"=>$lastname,"othernames"=>$othernames,"email"=>$email,"date_of_birth"=>$date_of_birth,"gender"=>$gender, "marital_status"=>$marital_status, "phone_number"=>$phone_number, "alternate_phone_number"=>$alternate_phone_number, "state_of_origin"=>$state_of_origin, "lga_of_origin"=>$lga_of_origin, "form_number"=>$form_number, "nationality"=>$nationality,"created_by"=>$created_by);
         DB::table('candidates')->insert($data);
-        return back()->with('status', 'Candidate successfully added');
+        $users = DB::table('candidates')
+        ->select('candidates.form_number')->where ('candidates.form_number', '=', $form_number)
+        ->get();
+        Session::put('users', $users);
+        return redirect()->route('candidate-passport',['users'=>$users]);
+        //return back()->with('status', 'Candidate successfully added');
         //return redirect()->route('candidate-passport')->with('status', 'Candidate succeffully added');
         //return view('candidate-passport')->with('status', 'Candidate succeffully added');
         //return view('candidate-passport');
@@ -59,7 +64,7 @@ class StudInsertController extends Controller
         }
         
        
-        
+       
         
          
         
