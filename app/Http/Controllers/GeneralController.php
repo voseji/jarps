@@ -17,13 +17,16 @@ class GeneralController extends Controller
             if ($request->file('image')->isValid()) {
                 //
                 $validated = $request->validate([
+                   // 'special' => 'string|max:40',
                     'name' => 'string|max:40',
                     'image' => 'mimes:jpeg,png|max:1014',
                 ]);
                 $extension = $request->image->extension();
-                $request->image->storeAs('public/storage', $validated['name'].".".$extension);
-                $url = Storage::url($validated['name'].".".$extension);
                 $special = $request->input('special');
+                $request->image->storeAs('/', $special.".".$extension);
+                //$path = $request->file('image')->store('public/images');
+                $url = ($special.".".$extension);
+                
                 $file = File::create([
                    'name' => $validated['name'],
                     'url' => $url,

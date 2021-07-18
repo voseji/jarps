@@ -52,6 +52,8 @@
                 @foreach ($users as $user)
                 @endforeach
 
+                @foreach ($users2 as $user2)
+                @endforeach
 
                 <div class="row" >
                     <div class="col-md-9">
@@ -63,8 +65,8 @@
   
 " src="images/fctlogo.png" class="inv-logo" alt="FCT SONM">
                             <h2 style="text-align:center">Federal Capital Territory</h2>
-                            <h3 style="text-align:center">School of Nursing and Midwifery, Gwagalada</h3>
-                            <h4 style="text-align:center"><u>2021 School of Midwifery Admission</u></h4>
+                            <h3 style="text-align:center">Schools of Nursing and Midwifery, Gwagalada</h3>
+                            <h4 style="text-align:center"><u>2021 Basic Midwifery Admission</u></h4>
                                 <div class="row custom-invoice">
                                
                                     <div class="col-6 col-sm-6 m-b-20">
@@ -91,8 +93,9 @@
                                         </table>
 										<table width="200%" border="1">
                                         <tr>
+                                        
 											<td colspan="2"><h5>Registration Number:</h5> <h3 class="text-uppercase">{{ $user->id}}</h3></td>
-											<td style="text-align:center">Passport: <br/><img src="{{ URL::to('/') }}/images/1.jpg" width="150px" height="150px"/>
+											<td style="text-align:center">Passport: <br/><img src="{{ asset('images') }}/{{ $user2->url}}" width="150px" height="150px"/>
                                           
                                             </td>
                                             </tr>
@@ -122,19 +125,15 @@
                                             
 
                                             <tr >
+                                            <td> <h5>Nationality:</h5> <h3 class="text-uppercase">{{ $user->nationality}}</h3></td>
                                             <td><h5>State of Origin:</h5> <h3 class="text-uppercase">{{ $user->name}}</h3></td>
                                             
                                             <td> <h5>LGA of Origin:</h5> <h3 class="text-uppercase">{{ $user->lga}}</h3></td>
                                         
-                                           <td></td>
-                                            </tr>
-
-                                            <tr>
-                                            <td colspan="3"><h5>Residential Address:</h5> <h6 class="text-uppercase">{{ $user->residential_address}}</h6></td>
-                                            
-                                            
                                            
                                             </tr>
+
+                                            
                                             </table>
                                     </div>
    

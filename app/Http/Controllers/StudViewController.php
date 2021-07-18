@@ -14,7 +14,7 @@ class StudViewController extends Controller
         }
 
         public function index2(Request $request){
-            $users = DB::select('select * from candidates');
+            //$users = DB::select('select * from candidates');
             
 
             $users = DB::table('candidates')
@@ -22,8 +22,11 @@ class StudViewController extends Controller
             ->join('employees', 'candidates.lga_of_origin', '=', 'employees.id')
             ->select('candidates.*', 'departments.name', 'employees.name as lga')->where ('candidates.id', '=', $request->id)
             ->get();
+            $users2 = DB::table('files')
+            ->select('files.special', 'files.name', 'files.url')->where ('files.special', '=', $request->special)
+            ->get();
 
-            return view('candidate-view',['users'=>$users]);
+            return view('candidate-view',['users'=>$users, 'users2'=>$users2]);
 
             } 
 

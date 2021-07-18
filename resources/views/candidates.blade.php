@@ -64,7 +64,7 @@
 											<div >
 												
 													<a class="dropdown-item" href="candidate-edit?id={{ $user->id }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item" href="candidate-view?id={{ $user->id }}"  ><i class="fa fa-print"></i> Print</a>
+													<a class="dropdown-item" href="candidate-view?id={{ $user->id }}&&special={{ $user->special }}"  ><i class="fa fa-print"></i> Print</a>
 												
 											</div>
 										</td>
