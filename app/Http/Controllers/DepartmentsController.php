@@ -20,6 +20,17 @@ class DepartmentsController extends Controller
     	return view('new-candidate')->with("departmentData",$departmentData);
     }
 
+    public function index2(){
+
+        // Fetch departments
+        $departmentData['data'] = Departments::orderby("name","asc")
+        			   ->select('id','name')
+        			   ->get();
+
+        // Load index view
+    	return view('candidate-edit')->with("departmentData",$departmentData);
+    }
+
     // Fetch records
     public function getEmployees($departmentid=0){
 

@@ -1,55 +1,77 @@
-@include('auth/head')
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Register') }}</div>
 
-<body>
-    <div class="main-wrapper  account-wrapper">
-        <div class="account-page">
-            <div class="account-center">
-                <div class="account-box">
-                    <form action="http://dreamguys.co.in/preclinic/template/index.html" class="form-signin">
-						<div class="account-logo">
-                            <a href="index-2.html"><img src="assets/img/logo-dark.png" alt=""></a>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control">
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" class="form-control">
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control">
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Mobile Number</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group checkbox">
-                            <label>
-                                <input type="checkbox"> I have read and agree the Terms & Conditions
-                            </label>
-                        </div>
-                        <div class="form-group text-center">
-                            <button class="btn btn-primary account-btn" type="submit">Signup</button>
-                        </div>
-                        <div class="text-center login-link">
-                            Already have an account? <a href="{{ route('login') }}">Login</a>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/app.js"></script>
-</body>
-
-
-<!-- register24:03-->
-</html>
+</div>
+@endsection

@@ -52,11 +52,11 @@
                                     @foreach ($users as $user)
                                     <td>{{ $user->form_number}}</td>
                                     <td>{{ $user->id }}</td>
-										<td>{{ $user->lastname }}, {{ $user->firstname }} {{ $user->othernames }}</td>
+										<td style="text-transform:uppercase">{{ $user->lastname }}, {{ $user->firstname }} {{ $user->othernames }}</td>
                                         
                                         
                                         
-                                        <td>{{ $user->email }}</td>
+                                        <td style="text-transform:lowercase">{{ $user->email }}</td>
 
                                         
 										

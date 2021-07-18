@@ -32,14 +32,7 @@
 							</ul>
 						</li>
                         
-                        <li class="submenu">
-							<a href="#"><i class="fa fa-user"></i> <span> Manage Users </span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="new-user">New User</a></li>
-								<li><a href="">Edit User</a></li>
-								
-							</ul>
-                        </li>
+                       
                         
                     </ul>
                 </div>

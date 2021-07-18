@@ -57,7 +57,7 @@
                                     
                                         <label>Form Number <span class="text-danger">*</span></label>
                                         
-                                        <input type="text" class="form-control" placeholder="Form Number" name="form_number" required>
+                                        <input type="text" class="form-control" placeholder="Form Number" style="text-transform: uppercase;" name="form_number" required>
                                         
                                     </div>
                                     </div>
@@ -96,14 +96,14 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input type="tel" max="11" class="form-control" placeholder="Phone Number" style="text-transform: uppercase;" name="phone_number" required>
+                                        <input type="tel" maxlength="11" class="form-control" placeholder="Phone Number" style="text-transform: uppercase;" name="phone_number" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Alternate Phone Number</label>
-                                        <input type="tel" class="form-control" placeholder="Alternate Phone Number" style="text-transform: uppercase;" name="alternate_phone_number" >
+                                        <input type="tel" class="form-control" maxlength="11"  placeholder="Alternate Phone Number" style="text-transform: uppercase;" name="alternate_phone_number" >
                                     </div>
                                 </div>
                                 
@@ -111,7 +111,7 @@
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <div class="cal-icon">
-                                            <input type="text" max="1979-12-31" id="date_of_birth" name="date_of_birth" class="form-control datetimepicker" required>
+                                            <input type="text" maxlength="1979-12-31" id="date_of_birth" name="date_of_birth" class="form-control datetimepicker" required>
                                         </div>
                                     </div>
                                 </div>

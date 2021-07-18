@@ -148,6 +148,7 @@
                                         <b>Telegram link: https://rb.gy/gqzqps</b><br/>
                                         <b>WhatsApp: 08082775076</b>
                                         </p>
+                                        <p style="align:right">{!! QrCode::size(180)->generate("FCT School of Nursing & Midwifery. 2021 Admissions $user->lastname $user->firstname $user->othernames"); !!}</p>
                                         <footer style="text-align:right; font-size:11px">Date Printed: @php echo date('d-m-Y') @endphp</footer>
                                     </div>
                                 </div>

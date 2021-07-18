@@ -50,6 +50,13 @@ Route::get('candidate-check', function () {
    return view('candidate-check');
 });
 
+Route::get('qrcode', function () {
+   return QrCode::size(250)
+       ->backgroundColor(255, 255, 204)
+       ->generate('FCT School of Nursing & Midwifery. 2021 Admissions');
+});
+
+
 
 Auth::routes();
 
@@ -78,6 +85,7 @@ Route::get('candidate-edit','EditCandidateController@index3');
 //Route for pulling SOR and LGAOR
 Route::get('new-candidate', 'DepartmentsController@index'); // localhost:8000/
 Route::get('/getEmployees/{id}', 'DepartmentsController@getEmployees');
+Route::get('/candidate-edit/{id}', 'DepartmentsController@index2');
 
 //Route for uploading passport
 Route::view('/file-upload', 'candidate-passport');
@@ -91,3 +99,6 @@ Route::post('/file-upload', 'GeneralController@store');
 
 
 Route::get('candidate-edit/{$id}', 'UserNavigate@special');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

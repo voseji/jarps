@@ -183,13 +183,7 @@
                                 </div>
 								<div class="col-sm-13">
 									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group">
-												<label>Address</label>
-                                                <textarea class="form-control" name="residential_address" required></textarea>
-												<input type="hidden" id="created_by" name="created_by" class="form-check-input" value="{{ $user2->residential_address}}">
-											</div>
-										</div>
+										
                                         	
 										
 									</div>
