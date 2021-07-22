@@ -50,6 +50,10 @@ Route::get('candidate-check', function () {
    return view('candidate-check');
 });
 
+Route::get('delete', function () {
+   return view('candidate-check');
+});
+
 Route::get('qrcode', function () {
    return QrCode::size(250)
        ->backgroundColor(255, 255, 204)
@@ -92,8 +96,10 @@ Route::view('/file-upload', 'candidate-passport');
 Route::post('/file-upload', 'GeneralController@store');
 //Route::get('/view-uploads', 'GeneralController@viewUploads');
 
-
-
+//Route to delete Candidate record
+//Route::resource('candidate-view','DeleteController@del');
+//Route::get('candidate-view/delete/{id}', ['as' => 'candidate-view.delete', 'users' => 'DeleteController@del']);
+//Route::get('candidate-view/{id}/delete', ['as' => 'candidate-view.delete', 'uses' => 'DeleteController@del']);
 //Route::get('/view_uploads', 'GeneralController@viewUploads2');
 
 
@@ -102,3 +108,9 @@ Route::get('candidate-edit/{$id}', 'UserNavigate@special');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('delete-records','DeleteController@index');
+Route::get('delete/{id}','DeleteController@destroy');
+
+Route::delete('/delete/{id}')->name('candidates.destroy');

@@ -89,6 +89,11 @@
     </div>
     <div class="staff-msg"><a href="new-candidate" class="btn btn-primary" style="color:background-color:green" >Fresh Registration</a></div> 
 @endif
+                  
+                  
+                  
+                  
+                  
                                         </div>
                                         <div class="col-sm-12">
 									<div class="form-group">

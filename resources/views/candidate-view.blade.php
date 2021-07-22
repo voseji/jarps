@@ -43,8 +43,8 @@
                     <div class="col-sm-9 col-9 m-b-30">
                         <div class="btn-group btn-group-sm">
                             
-                            
-                            <button class="btn btn-white" onclick="printDiv('card-print')"><i class="fa fa-print fa-lg"></i> Print</button>
+                        
+                            <button class="btn btn-white" onclick="printDiv('card-print')" style="background-color:green; color:white"><i class="fa fa-print fa-lg"></i> Print</button>
                         </div>
                     </div>
                 </div>
@@ -54,6 +54,10 @@
 
                 @foreach ($users2 as $user2)
                 @endforeach
+
+
+              
+                
 
                 <div class="row" >
                     <div class="col-md-9">
@@ -148,11 +152,20 @@
                                         <b>Telegram link: https://rb.gy/gqzqps</b><br/>
                                         <b>WhatsApp: 08082775076</b>
                                         </p>
+                                       
                                         <p style="align:right">{!! QrCode::size(180)->generate("FCT School of Nursing & Midwifery. 2021 Admissions $user->lastname $user->firstname $user->othernames"); !!}</p>
                                         <footer style="text-align:right; font-size:11px">Date Printed: @php echo date('d-m-Y') @endphp</footer>
                                     </div>
+                                    
                                 </div>
+                                
                             </div>
+                            
+                        </div>
+                        <div class="btn-group btn-group-sm">
+                            
+                        <a href="delete/{{ $user->id }}"><button class="btn btn-white" style="background-color:red; color:white"><i class="fa fa-times fa-lg"></i> Delete This Registration </button>&nbsp;
+                            
                         </div>
                     </div>
                 </div>
