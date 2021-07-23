@@ -31,8 +31,18 @@
 								
 							</ul>
 						</li>
-                        
-                       
+						@if(Auth::user()->role =='super_admin')         
+						<li class="submenu">
+							<a href="#"><i class="fa fa-cog"></i> <span> Manage Users </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="new-user">Add New User</a></li>
+								<li><a href="">Delete User</a></li>
+								</ul>
+						</li>
+@else
+            
+@endif
+						
                         
                     </ul>
                 </div>

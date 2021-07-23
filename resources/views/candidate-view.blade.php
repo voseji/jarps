@@ -164,7 +164,7 @@
                         </div>
                         <div class="btn-group btn-group-sm">
                             
-                        <a href="delete/{{ $user->id }}"><button class="btn btn-white" style="background-color:red; color:white"><i class="fa fa-times fa-lg"></i> Delete This Registration </button>&nbsp;
+                        <a href="delete/{{ $user->id }}" onclick="return confirm('Are you sure you want to delete this candidate? This action cannot be reversed');"><button class="btn btn-white" style="background-color:red; color:white"><i class="fa fa-times fa-lg"></i> Delete This Registration </button>&nbsp;
                             
                         </div>
                     </div>

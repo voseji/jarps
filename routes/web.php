@@ -114,3 +114,9 @@ Route::get('delete-records','DeleteController@index');
 Route::get('delete/{id}','DeleteController@destroy');
 
 Route::delete('/delete/{id}')->name('candidates.destroy');
+
+//Route::get('/counters')->name('CountersController.open_count');
+
+//Route::view('new-user', 'AuthController@insertform');
+Route::post('new-user', 'AuthController@insert');
+//Route::view('new-user', 'AuthController@view');

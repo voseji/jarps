@@ -28,12 +28,26 @@
                         <h4 class="page-title">New User</h4>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-9">
                         <div class="card-box">
-                            <h4 class="card-title">Registration Form</h4>
-                    <form method="POST" action="{{ route('register') }}">
+                            <h4 class="card-title">Register New User</h4>
+
+                            @if(Session::has('delete_status'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+        {{ Session('delete_status') }}
+        
+    </div>
+    
+@endif
+                    <form method="POST" action="/new-user">
                         @csrf
+                        {{ csrf_field() }}
+                        <input name="created_at" type="hidden" value="@php $todayDate = Carbon\Carbon::now()->format('Y-m-d h:i:s'); echo $todayDate; @endphp"/>
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Fullname</label>
                                     <div class="col-md-9">
@@ -59,6 +73,23 @@
                                     </div>
 
                                 </div>
+
+
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Assign Role</label>
+                                    <div class="col-md-9">
+                                    <select name="role" class="form-control">
+                                    <option value="">---Select---</option>
+                                    <option value="super_admin">Super Admin</option>
+                                    <option value="data_capture_agent">Data Capture Agent</option>
+                                    <option value="verification_officer">Verification Officer</option>
+                                    
+                                   </select>
+
+                                    </div>
+
+                                </div>
+
                                 
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Password</label>

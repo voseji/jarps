@@ -20,7 +20,9 @@ class StudViewController extends Controller
             $users = DB::table('candidates')
             ->join('departments', 'departments.id', '=', 'candidates.state_of_origin')
             ->join('employees', 'candidates.lga_of_origin', '=', 'employees.id')
-            ->select('candidates.*', 'departments.name', 'employees.name as lga')->where ('candidates.id', '=', $request->id)
+            ->select('candidates.*', 'departments.name', 'employees.name as lga')
+            ->where ('candidates.id', '=', $request->id)
+            
             ->get();
             $users2 = DB::table('files')
             ->select('files.special', 'files.name', 'files.url')->where ('files.special', '=', $request->special)

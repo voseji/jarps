@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function register()
     {
 
-      return view('auth.register');
+      return view('new-user');
     }
 
     public function storeUser(Request $request)
@@ -21,13 +21,15 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'role' => 'required',
+            'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required',
         ]);
 
         User::create([
           'name' => $request->name,
           'email' => $request->email,
+          'role' => $request->role,
           //'password' => $request->password,
           'password' => Hash::make($request->password),
       ]);
