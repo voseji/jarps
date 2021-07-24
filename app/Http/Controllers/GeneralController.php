@@ -19,7 +19,7 @@ class GeneralController extends Controller
                 $validated = $request->validate([
                    // 'special' => 'string|max:40',
                     'name' => 'string|max:40',
-                    'image' => 'mimes:jpeg,png|max:1014',
+                    'image' => 'mimes:jpg,jpeg,png|max:1014',
                 ]);
                 $extension = $request->image->extension();
                 $special = $request->input('special');

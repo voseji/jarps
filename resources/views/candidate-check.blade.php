@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-sm-7 col-6">
                     
-                        <h4 class="page-title">Upload Passport</h4>
+                        <h4 class="page-title">Verify Candidate</h4>
                         
                      
                         
@@ -68,15 +68,10 @@
 
 
                             <div class="profile-view">
-                                <div class="profile-img-wrap">
                                 
-                                    <div class="profile-img">
-                                        
-                                    </div>
-                                </div>
                                 <div class="profile-basic">
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-12">
                   
                                         <form class="m-2" method="post" action="/check" enctype="multipart/form-data">
             @csrf   

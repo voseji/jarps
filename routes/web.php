@@ -89,7 +89,10 @@ Route::get('candidate-edit','EditCandidateController@index3');
 //Route for pulling SOR and LGAOR
 Route::get('new-candidate', 'DepartmentsController@index'); // localhost:8000/
 Route::get('/getEmployees/{id}', 'DepartmentsController@getEmployees');
-Route::get('/candidate-edit/{id}', 'DepartmentsController@index2');
+//Route::get('/candidate-edit/{id}', 'DepartmentsController@index2');
+Route::get('/candidate-edit', 'DepartmentsController@index'); // localhost:8000/
+
+
 
 //Route for uploading passport
 Route::view('/file-upload', 'candidate-passport');

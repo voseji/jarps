@@ -23,6 +23,8 @@
 
      <---------------Counters-------------------->
      @include('counters') 
+     @if(Auth::user()->role =='verification_officer') 
+     @elseif(Auth::user()->role =='super_admin' || Auth::user()->role=='data_capture_agent') 
      <div class="row">
                     <div class="col-sm-4 col-3">
                         <h4 class="page-title">Homepage</h4>
@@ -32,7 +34,7 @@
                     </div>
                 </div>
 		
-		
+		@endif
                    
                 </div>
             </div>

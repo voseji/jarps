@@ -8,12 +8,12 @@
                         </li>
 						
                         
-                        
+						@if(Auth::user()->role =='super_admin')  
 						<li class="submenu">
 							<a href="#"><i class="fa fa-user"></i> <span> Registration </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="new-candidate">New Registration</a></li>
-								<li><a href="candidate-edit">Edit Registration</a></li>
+								
 								
 							</ul>
 						</li>
@@ -31,7 +31,7 @@
 								
 							</ul>
 						</li>
-						@if(Auth::user()->role =='super_admin')         
+						        
 						<li class="submenu">
 							<a href="#"><i class="fa fa-cog"></i> <span> Manage Users </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
@@ -39,8 +39,45 @@
 								<li><a href="">Delete User</a></li>
 								</ul>
 						</li>
-@else
-            
+						<li >
+							<a href="verify"><i class="fa fa-user"></i> <span> Verify Candidate </span> </a>
+						</li>
+						@elseif(Auth::user()->role =='data_capture_agent') 
+						<!---------------Data Capture Agents------------------>
+
+
+
+<li class="submenu">
+							<a href="#"><i class="fa fa-user"></i> <span> Registration </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="new-candidate">New Registration</a></li>
+								
+								
+							</ul>
+						</li>
+
+                        <li>
+                            <a href="candidates"><i class="fa fa-users"></i> <span>Candidates Registered</span></a>
+                        </li>
+
+						
+
+						@elseif(Auth::user()->role =='verification_officer') 
+						<!---------------Data Capture Agents------------------>
+
+
+
+							<li>
+							<a href="candidate-check"><i class="fa fa-user"></i> <span> Verify Candidate </span> </a>
+						</li>
+
+                        
+
+						
+
+
+
+          
 @endif
 						
                         
