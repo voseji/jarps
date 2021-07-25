@@ -1,6 +1,6 @@
 @section('content')
 
-@endsection
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,8 +42,11 @@
   </button>
   </div>
 @endif
-                    <form id="register"  action = "/update" method = "post" class="form-group" style="width:100%; " >
-                    <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">	    
+                    <form id="register"  action = "/update" method = "put" class="form-group" style="width:100%; " >
+                    <input type="hidden" name="_method" value="PUT">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    @method('PUT')
+    @csrf
                     <div class="row">
                     <div class="col-sm-6">
                                     <div class="form-group">
@@ -108,7 +111,7 @@
                                     <div class="form-group">
                                         <label>Date of Birth <span class="text-danger">*</span></label>
                                         <div class="cal-icon">
-                                            <input type="text" maxlength="1979-12-31" id="date_of_birth" value="{{ $user2->date_of_birth}}" name="date_of_birth" class="form-control datetimepicker" required>
+                                            <input type="date"  min="1960-01-01" max="2003-12-01" id="date_of_birth" value="{{ $user2->date_of_birth}}" name="date_of_birth" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>
@@ -554,3 +557,4 @@ $(document).ready(function (e) {
 
 <!-- edit-patient24:07-->
 </html>
+@endsection

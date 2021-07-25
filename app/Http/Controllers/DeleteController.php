@@ -19,5 +19,16 @@ class DeleteController extends Controller
         //return view('candidates',['users'=>$users]);
         return redirect('candidates')->with('delete_status', 'Candidate succesfully deleted');
      }
+
+
+     public function index2() {
+        $users = DB::select('select * from Batching');
+        return view('batches',['batches'=>$batches]);
+     }
+ public function destroy2($batch_number) {
+     DB::delete('delete from Batching where batch_number = ?',[$batch_number]);
+     //return view('candidates',['users'=>$users]);
+     return redirect('batches')->with('delete_status', 'Batch succesfully deleted');
+  }
           
 }

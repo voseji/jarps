@@ -34,7 +34,7 @@ class GeneralController extends Controller
                 ]);
                 Session::put('pp', "Passport uploaded successfully. ");
                 //return \Redirect::back();
-                return redirect('candidates')->with('delete_status', 'Candidate succesfully added');
+                return redirect('home')->with('delete_status', 'Candidate succesfully added');
             }
         }
         abort(500, 'Could not upload image :(');

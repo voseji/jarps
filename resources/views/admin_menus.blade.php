@@ -25,9 +25,10 @@
                         <li class="submenu">
 							<a href="#"><i class="fa fa-book"></i> <span> Report </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
+							<li><a href="print-all-slips">Print All Slips</a></li>
 								<li><a href="">Reprint Slip</a></li>
 								<li><a href="">Download Report</a></li>
-								<li><a href="">Check Batch</a></li>
+								
 								
 							</ul>
 						</li>
@@ -39,8 +40,20 @@
 								<li><a href="">Delete User</a></li>
 								</ul>
 						</li>
+
+						<li class="submenu">
+							<a href="#"><i class="fa fa-tasks"></i> <span> Batching </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="batches">Create New Batch</a></li>
+								<li><a href="batch-candidate">Batch Candidates</a></li>
+								<li><a href="">Re-Batch</a></li>
+								<li><a href="">Check Candidate's Batch</a></li>
+								
+							</ul>
+						</li>
+
 						<li >
-							<a href="verify"><i class="fa fa-user"></i> <span> Verify Candidate </span> </a>
+							<a href="candidate-check"><i class="fa fa-user"></i> <span> Verify Candidate </span> </a>
 						</li>
 						@elseif(Auth::user()->role =='data_capture_agent') 
 						<!---------------Data Capture Agents------------------>
@@ -51,14 +64,10 @@
 							<a href="#"><i class="fa fa-user"></i> <span> Registration </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="new-candidate">New Registration</a></li>
-								
-								
 							</ul>
 						</li>
 
-                        <li>
-                            <a href="candidates"><i class="fa fa-users"></i> <span>Candidates Registered</span></a>
-                        </li>
+                       
 
 						
 

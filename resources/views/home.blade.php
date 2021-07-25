@@ -29,6 +29,16 @@
                     <div class="col-sm-4 col-3">
                         <h4 class="page-title">Homepage</h4>
                     </div>
+                    @if(Session::has('delete_status'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+        {{ Session('delete_status') }}
+        
+    </div>
+    
+@endif
                     <div class="col-sm-8 col-9 text-right m-b-20">
                         <a href="new-candidate" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Create New Candidate</a>
                     </div>

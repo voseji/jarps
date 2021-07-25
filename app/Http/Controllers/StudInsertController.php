@@ -53,16 +53,7 @@ class StudInsertController extends Controller
         Session::put('users', $users);
         Session::put('special', $special);
         return redirect()->route('candidate-passport',['users'=>$users, 'special'=>$special]);
-        //return back()->with('status', 'Candidate successfully added');
-        //return redirect()->route('candidate-passport')->with('status', 'Candidate succeffully added');
-        //return view('candidate-passport')->with('status', 'Candidate succeffully added');
-        //return view('candidate-passport');
-      
-           // $users = DB::select('select * from candidates where phone_no=$phone');
-           //$users = DB::table('candidates')->where('phone_number', '=', $phone_number)->get();
-           //$users = DB::table('candidates')->select('id')->where('phone_number', '=', $phone_number)->get();
-          // return back()->with('status', 'Candidate succeffully added',['id'=>$id]);
-           //return view('candidates',['id'=>$id]);
+        
         }
         
        

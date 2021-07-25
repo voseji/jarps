@@ -28,7 +28,11 @@ Route::get('enrol', function () {
     return view('new-user');
  });
 
- 
+
+ Route::get('new-batch', function () {
+   return view('new-batch');
+});
+
 
  Route::get('edit-candidate', function () {
     return view('edit-candidate');
@@ -48,6 +52,10 @@ Route::get('candidate-passport', function () {
 
 Route::get('candidate-check', function () {
    return view('candidate-check');
+});
+
+Route::get('print-all-slips', function () {
+   return view('print-all-slips');
 });
 
 Route::get('delete', function () {
@@ -83,8 +91,14 @@ Route::get('/candidate-passport', 'SearchController@check2') -> name('candidate-
 
 //Route for viewing canidates records
 Route::get('candidates','StudViewController@index');
+Route::get('print-all-slips','StudViewController@index3');
 Route::get('candidate-view','StudViewController@index2');
 Route::get('candidate-edit','EditCandidateController@index3');
+Route::post('check-attendance','AttendanceController@index2');
+Route::view('attendance-check','AttendanceController@index');
+
+
+
  
 //Route for pulling SOR and LGAOR
 Route::get('new-candidate', 'DepartmentsController@index'); // localhost:8000/
@@ -92,18 +106,16 @@ Route::get('/getEmployees/{id}', 'DepartmentsController@getEmployees');
 //Route::get('/candidate-edit/{id}', 'DepartmentsController@index2');
 Route::get('/candidate-edit', 'DepartmentsController@index'); // localhost:8000/
 
-
+//Route to batching list
+Route::get('batches','BatchController@index');
+Route::post('/create-batch', 'BatchCreatorController@insert'); // localhost:8000/
 
 //Route for uploading passport
 Route::view('/file-upload', 'candidate-passport');
 Route::post('/file-upload', 'GeneralController@store');
 //Route::get('/view-uploads', 'GeneralController@viewUploads');
 
-//Route to delete Candidate record
-//Route::resource('candidate-view','DeleteController@del');
-//Route::get('candidate-view/delete/{id}', ['as' => 'candidate-view.delete', 'users' => 'DeleteController@del']);
-//Route::get('candidate-view/{id}/delete', ['as' => 'candidate-view.delete', 'uses' => 'DeleteController@del']);
-//Route::get('/view_uploads', 'GeneralController@viewUploads2');
+
 
 
 
@@ -112,11 +124,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+//The delete controller
 Route::get('delete-records','DeleteController@index');
 Route::get('delete/{id}','DeleteController@destroy');
-
 Route::delete('/delete/{id}')->name('candidates.destroy');
+
+
+Route::get('delete-batch','DeleteController@index2');
+Route::get('delete2/{batch_number}','DeleteController@destroy2');
+Route::delete('/delete2/{batch_number}')->name('batches.destroy2');
 
 //Route::get('/counters')->name('CountersController.open_count');
 

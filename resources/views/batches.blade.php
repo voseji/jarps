@@ -26,10 +26,10 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm-4 col-3">
-                        <h4 class="page-title">Candidates</h4>
+                        <h4 class="page-title">Batches</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
-                        <a href="new-candidate" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Create New Candidate</a>
+                        <a href="new-batch" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Create New Batch</a>
                     </div>
                 </div>
                 @if(Session::has('delete_status'))
@@ -42,77 +42,47 @@
     </div>
     
 @endif
+
 				<div class="row">
 					<div class="col-md-12">
 						<div class="table-responsive">
-
-
-                        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-  <thead>
-    <tr>
-      <th class="th-sm">Form Number
-
-      </th>
-      <th class="th-sm">Registration Number
-
-      </th>
-      <th class="th-sm">Fullname
-
-      </th>
-      <th class="th-sm">Email
-    </th>
-
-    </th>
-      <th class="th-sm">Batch
-    </th>
-
-    <th class="th-sm">Action
-    </th>
-      
-    </tr>
-  </thead>
-  <tbody>
-  @foreach ($users as $user)
-    <tr>
-      <td>{{ $user->form_number}}</td>
-      <td>{{ $user->id }}</td>
-      <td style="text-transform:uppercase">{{ $user->lastname }}, {{ $user->firstname }} {{ $user->othernames }}</td>
-      <td style="text-transform:lowercase">{{ $user->email }}</td>
-      <td style="text-transform:lowercase">{{ $user->batch }}</td>
-      <td class="text-right">
+							<table class="table table-border table-striped custom-table datatable mb-0">
+								<thead>
+									<tr>
+                                    <th>Batch Number</th>
+                                    <th>Batch Date</th>
+										<th>Batch Day</th>
+										<th>Batch Time</th>
+                                        <th>Hall</th>
+										<th>Seats Available</th>
+										
+										
+										<th class="text-right">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+                                    @foreach ($batches as $batch)
+                                    @php
+$date=$batch->batch_date;
+$batch_day=date('l', strtotime($date));
+@endphp
+                                    <td>{{ $batch->batch_number}}</td>
+                                    <td>{{ $batch->batch_date }}</td>
+									<td style="text-transform:uppercase">@php echo $batch_day @endphp</td>
+                                    <td>{{ $batch->batch_time }}</td>
+                                    <td>{{ $batch->hall}}</td>
+                                    <td>{{ $batch->seats_available}}</td>
+                                     <td class="text-right">
 											<div >
-											<a class="dropdown-item" href="candidate-edit?id={{ $user->id }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-											<a class="dropdown-item" href="candidate-view?id={{ $user->id }}&&special={{ $user->special }}"  ><i class="fa fa-print"></i> Print</a>
-                                            <a class="dropdown-item" href="rebatch?id={{ $user->id }}"  ><i class="fa fa-tasks"></i> Rebatch</a>
+											<a class="dropdown-item" href="batch-edit?batch_number={{ $batch->batch_number }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+											<a class="dropdown-item" href="delete2/{{ $batch->batch_number }}" onclick="return confirm('Are you sure you want to delete this candidate? This action cannot be reversed');"><i class="fa fa-trash"></i> Delete</a>
 											</div>
 										</td>
-    </tr>
-@endforeach
-
-  </tbody>
-  <tfoot style="text-align:center">
-    <tr>
-      <th>Form Number
-      </th>
-      <th>Registration Number
-      </th>
-      <th>Fullname
-      </th>
-      <th>Email
-      </th>
-      <th>Batch
-      </th>
-
-      <th class="th-sm">Action
-    </th>
-      
-    </tr>
-  </tfoot>
-</table>
-
-
-
-						
+									</tr>
+                                    @endforeach
+								</tbody>
+							</table>
 						</div>
 					</div>
                 </div>
@@ -132,15 +102,6 @@
     <script src="{{ asset('assets/js/moment.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
-
-<script>
-
-    $(document).ready(function () {
-  $('#dtBasicExample').DataTable();
-  $('.dataTables_length').addClass('bs-select');
-  
-});
-</script>
 </body>
 
 

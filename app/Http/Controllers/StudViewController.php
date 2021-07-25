@@ -22,7 +22,6 @@ class StudViewController extends Controller
             ->join('employees', 'candidates.lga_of_origin', '=', 'employees.id')
             ->select('candidates.*', 'departments.name', 'employees.name as lga')
             ->where ('candidates.id', '=', $request->id)
-            
             ->get();
             $users2 = DB::table('files')
             ->select('files.special', 'files.name', 'files.url')->where ('files.special', '=', $request->special)
@@ -32,6 +31,24 @@ class StudViewController extends Controller
 
             } 
 
+
+            public function index3(Request $request){
+                //$users = DB::select('select * from candidates');
+                
+    
+                $users = DB::table('candidates')
+                ->join('departments', 'departments.id', '=', 'candidates.state_of_origin')
+                ->join('employees', 'candidates.lga_of_origin', '=', 'employees.id')
+                ->select('candidates.*', 'departments.name', 'employees.name as lga')
+                ->where ('candidates.id', '=', $request->id)
+                ->get();
+                $users2 = DB::table('files')
+                ->select('files.special', 'files.name', 'files.url')->where ('files.special', '=', $request->special)
+                ->get();
+    
+                return view('print-all-slips',['users'=>$users, 'users2'=>$users2]);
+    
+                } 
            
           
 }

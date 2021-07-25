@@ -37,7 +37,7 @@
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-sm-7 col-6">
+                    <div class="col-sm-12 col-12">
                     
                         <h4 class="page-title">Verify Candidate</h4>
                         
@@ -48,47 +48,28 @@
                     
   
                                         
-                                        <div class="m-t-20 text-center">
-                                
-                            </div>
-
-                    <div class="col-sm-5 col-6 text-right m-b-30">
-                        
-                    </div>
+                     
                 </div>
                 
                 <div class="card-box profile-header">
                     <div class="row">
                         <div class="col-md-12">
-                        
-   
-      
-
-   
-
-
-                            <div class="profile-view">
-                                
-                                <div class="profile-basic">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                  
-                                        <form class="m-2" method="post" action="/check" enctype="multipart/form-data">
+                        <form class="col-sm-9" method="post" action="/check-attendance" >
             @csrf   
                                         </div>
                                         <div class="col-sm-12">
 									<div class="form-group">
-										<label>Upload Passport</label>
-										<div class="profile-upload">
+										<label>Type Registration Number</label>
+										<div >
 											
-											<div class="upload-input">
+											<div >
                                             
                                                 
                                             
-												<input type="text" width="100%" class="form-control" name="reg_number" placeholder="Enter" id="image">
+												<input type="text" width="100%" class="form-control" name="id" placeholder="Enter Regnumber" id="id">
                                                 
                         
-                                                <div class="staff-msg"><button type="submit" class="btn btn-primary" id="submit">Submit</button></div> 
+                                                <div class="staff-msg"><button type="submit" class="btn btn-primary" id="submit">Search</button></div> 
 											
                                                 
 
@@ -96,10 +77,7 @@
                                             @include('components.errors')
 										</div>
                                       </form>
-                                    </div>
-                                </div>
-                            </div>                        
-                        </div>
+                               
                     </div>
                 </div>
 				          </div>
