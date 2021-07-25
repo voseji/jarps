@@ -61,6 +61,8 @@
       </th>
       <th class="th-sm">Email
     </th>
+    <th class="th-sm">S. of Origin
+    </th>
 
     </th>
       <th class="th-sm">Batch
@@ -78,10 +80,11 @@
       <td>{{ $user->id }}</td>
       <td style="text-transform:uppercase">{{ $user->lastname }}, {{ $user->firstname }} {{ $user->othernames }}</td>
       <td style="text-transform:lowercase">{{ $user->email }}</td>
-      <td style="text-transform:lowercase">{{ $user->batch }}</td>
+      <td style="text-transform:uppercase">{{ $user->name }}</td>
+      <td style="text-transform:uppercase">{{ $user->batch }}</td>
       <td class="text-right">
 											<div >
-											<a class="dropdown-item" href="candidate-edit?id={{ $user->id }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+											<a class="dropdown-item" href="edit/{{ $user->id }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
 											<a class="dropdown-item" href="candidate-view?id={{ $user->id }}&&special={{ $user->special }}"  ><i class="fa fa-print"></i> Print</a>
                                             <a class="dropdown-item" href="rebatch?id={{ $user->id }}"  ><i class="fa fa-tasks"></i> Rebatch</a>
 											</div>
@@ -100,6 +103,8 @@
       </th>
       <th>Email
       </th>
+      <th class="th-sm">S. of Origin
+    </th>
       <th>Batch
       </th>
 

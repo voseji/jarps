@@ -34,9 +34,7 @@ Route::get('enrol', function () {
 });
 
 
- Route::get('edit-candidate', function () {
-    return view('edit-candidate');
- });
+ 
 
  Route::get('new-candidate', function () {
     return view('new-candidate');
@@ -109,6 +107,8 @@ Route::get('/candidate-edit', 'DepartmentsController@index'); // localhost:8000/
 //Route to batching list
 Route::get('batches','BatchController@index');
 Route::post('/create-batch', 'BatchCreatorController@insert'); // localhost:8000/
+Route::get('edit-batch','BatchController@index2');
+Route::post('/update-batch','BatchController@updateData');
 
 //Route for uploading passport
 Route::view('/file-upload', 'candidate-passport');
@@ -121,6 +121,8 @@ Route::post('/file-upload', 'GeneralController@store');
 
 Route::get('candidate-edit/{$id}', 'UserNavigate@special');
 Auth::routes();
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -139,3 +141,11 @@ Route::delete('/delete2/{batch_number}')->name('batches.destroy2');
 //Route::view('new-user', 'AuthController@insertform');
 Route::post('new-user', 'AuthController@insert');
 //Route::view('new-user', 'AuthController@view');
+
+
+
+
+
+Route::get('candidate-edit','StudUpdateController@index');
+Route::get('edit/{id}','StudUpdateController@show');
+Route::post('edit/{id}','StudUpdateController@edit');

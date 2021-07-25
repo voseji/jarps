@@ -46,15 +46,7 @@
                 @foreach ($users as $user)
                 @endforeach
 
-                
-
-                
-
-
-              
-                
-
-                <div class="row" >
+           <div class="row" >
                     <div class="col-md-9">
                         <div class="card" id="print">
                             <div class="card-body">
@@ -108,7 +100,7 @@
                                             </tr>
 
                                             <tr>
-                                            <td><h5>Exam Date:</h5> <h3 class="text-lowercase"></h3></td>
+                                            <td><h5>Exam Date:</h5> <h3 class="text-uppercase"></h3></td>
                                             
                                             <td><h5>Exam Time:</h5> <h3 class="text-uppercase"></h3></td>
                                             

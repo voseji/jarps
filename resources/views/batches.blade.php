@@ -75,8 +75,8 @@ $batch_day=date('l', strtotime($date));
                                     <td>{{ $batch->seats_available}}</td>
                                      <td class="text-right">
 											<div >
-											<a class="dropdown-item" href="batch-edit?batch_number={{ $batch->batch_number }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-											<a class="dropdown-item" href="delete2/{{ $batch->batch_number }}" onclick="return confirm('Are you sure you want to delete this candidate? This action cannot be reversed');"><i class="fa fa-trash"></i> Delete</a>
+											<a class="dropdown-item" href="edit-batch?batch_number={{ $batch->batch_number }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+											
 											</div>
 										</td>
 									</tr>

@@ -1,5 +1,3 @@
-@section('content')
-
 
 
 <!DOCTYPE html>
@@ -20,13 +18,12 @@
         </div>
      <---------------Menus-------------------->
      @include('admin_menus')
-     @foreach ($users2 as $user2)
-                    @endforeach 
+    
         <div class="page-wrapper ">
             <div class="content ">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-1">
-                    <h4 class="page-title">Editing <b style="text-transform:uppercase">{{ $user2->firstname}}'s</b> Information</h4>
+                    <h4 class="page-title">Editing <b style="text-transform:uppercase">'s</b> Information</h4>
 
                                        
 
@@ -42,23 +39,20 @@
   </button>
   </div>
 @endif
-                    <form id="register"  action = "/update" method = "put" class="form-group" style="width:100%; " >
-                    <input type="hidden" name="_method" value="PUT">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    @method('PUT')
-    @csrf
+                    <form id="register"  action = "/edit/<?php echo $users[0]->id; ?>" method = "post" class="form-group" style="width:100%; " >
+           
                     <div class="row">
                     <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Form Number2 <span class="text-danger">*</span></label>
-                                        <input type="tel" maxlength="11" class="form-control" value="{{ old('form_number', $user2->form_number)}}"> style="text-transform: uppercase;" name="form_number" required>
+                                        <label>Form Number <span class="text-danger">*</span></label>
+                                        <input type="tel" maxlength="11" class="form-control" value="<?php echo $users[0]->form_number; ?>" style="text-transform: uppercase;" name="form_number" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Registration Number</label>
-                                        <input type="tel" class="form-control" maxlength="11"  value="{{ $user2->id}}" style="text-transform: uppercase;" name="id" readonly>
+                                        <input type="tel" class="form-control" maxlength="11"  value="<?php echo $users[0]->id; ?>" style="text-transform: uppercase;" name="id" readonly>
                                     </div>
                                 </div>
 
@@ -66,7 +60,7 @@
                             <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Surname <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" style="text-transform: uppercase;" value="{{ $user2->lastname}}" name="lastname" required>
+                                        <input type="text" class="form-control" style="text-transform: uppercase;" value="<?php echo $users[0]->lastname; ?>" name="lastname" required>
                                     </div>
                                 </div>
                             <div class="col-sm-6">
@@ -75,7 +69,7 @@
                                     <div class="form-group">
                                         <label>First Name <span class="text-danger">*</span></label>
                                         
-                                        <input type="text" class="form-control" style="text-transform: uppercase;"  value="{{ $user2->firstname}}" name="firstname" required>
+                                        <input type="text" class="form-control" style="text-transform: uppercase;"  value="<?php echo $users[0]->firstname; ?>" name="firstname" required>
                                         
                                     </div>
                                 </div>
@@ -83,27 +77,27 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Other names </label>
-                                        <input type="text" class="form-control" style="text-transform: uppercase;"  value="{{ $user2->othernames}}" name="othernames" >
+                                        <input type="text" class="form-control" style="text-transform: uppercase;"  value="<?php echo $users[0]->othernames; ?>" name="othernames" >
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Email <span class="text-danger">*</span></label>
-                                        <input class="form-control" type="email" style="text-transform: lowercase;"  value="{{ $user2->email}}" name="email" >
+                                        <input class="form-control" type="email" style="text-transform: lowercase;"  value="<?php echo $users[0]->email; ?>" name="email" >
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Phone Number <span class="text-danger">*</span></label>
-                                        <input type="tel" maxlength="11" class="form-control" value="{{ $user2->phone_number}}" style="text-transform: uppercase;" name="phone_number" required>
+                                        <input type="tel" maxlength="11" class="form-control" value="<?php echo $users[0]->phone_number; ?>" style="text-transform: uppercase;" name="phone_number" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Alternate Phone Number</label>
-                                        <input type="tel" class="form-control" maxlength="11"  value="{{ $user2->alternate_phone_number}}" style="text-transform: uppercase;" name="alternate_phone_number" >
+                                        <input type="tel" class="form-control" maxlength="11"  value="<?php echo $users[0]->alternate_phone_number; ?>"  style="text-transform: uppercase;" name="alternate_phone_number" >
                                     </div>
                                 </div>
                                 
@@ -111,13 +105,11 @@
                                     <div class="form-group">
                                         <label>Date of Birth <span class="text-danger">*</span></label>
                                         <div class="cal-icon">
-                                            <input type="date"  min="1960-01-01" max="2003-12-01" id="date_of_birth" value="{{ $user2->date_of_birth}}" name="date_of_birth" class="form-control" required>
+                                            <input type="text"  id="date_of_birth" value="<?php echo $users[0]->date_of_birth; ?>" class="form-control datetimepicker" name="date_of_birth"  required>
                                         </div>
                                     </div>
                                 </div>
-                                @php
-                                $nationality=$user2->nationality;
-                                @endphp
+                                
                                 <div class="col-sm-6">
                                 <div class="form-group">
 												<label>Nationality <span class="text-danger">*</span></label>
@@ -403,9 +395,7 @@
 										<label class="gen-label">Gender: <span class="text-danger">*</span></label>
 										<div class="form-check-inline">
                                         <label class="form-check-label">
-                                          @php
-                                          $gender=$user2->gender;
-                                          @endphp
+                                      
 												<input type="radio" id="gender" name="gender" @php if(isset($gender)) { if($gender =='male') { echo "checked=checked"; }} @endphp value="male" class="form-check-input" required>Male
 											</label>
 										</div>
@@ -424,9 +414,7 @@
                                     <div class="col-sm-6">
 									<div class="form-group gender-select">
 										<label class="gen-label">Marital Status: <span class="text-danger">*</span></label>
-                                        @php
-                                          $marital_status=$user2->marital_status;
-                                          @endphp
+                                        
 										<div class="form-check-inline">
 											<label class="form-check-label">
 												<input style="text-transform: uppercase;" @php if(isset($marital_status)) { if($marital_status =='single') { echo "checked=checked"; }} @endphp type="radio" id="marital_status" name="marital_status" value="single" class="form-check-input" reuired>Single
@@ -557,4 +545,3 @@ $(document).ready(function (e) {
 
 <!-- edit-patient24:07-->
 </html>
-@endsection
