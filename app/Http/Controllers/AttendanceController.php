@@ -23,8 +23,10 @@ class AttendanceController extends Controller
             ->join('departments', 'departments.id', '=', 'candidates.state_of_origin')
             ->join('employees', 'candidates.lga_of_origin', '=', 'employees.id')
             ->join('files', 'candidates.special', '=', 'files.special')
+            ->join('attendance', 'candidates.id', '=', 'attendance.id')
+            ->join('batching', 'attendance.batch', '=', 'batching.batch_number')
             //->join('Batching', 'Batching.batch_number', '=', 'candidates.batch')
-            ->select('candidates.*', 'departments.name', 'employees.name as lga', 'files.url')
+            ->select('candidates.*', 'departments.name', 'employees.name as lga', 'files.url', 'attendance.*', 'batching.*')
             //->select('candidates.*', 'departments.name', 'employees.name as lga', 'files.url')
             ->where ('candidates.id', '=', $request->id)
             ->get();

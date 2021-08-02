@@ -15,7 +15,7 @@ $users = DB::select('select * from candidates where id = ?',[$id]);
 return view('candidate-edit',['users'=>$users]);
 }
 
-public function edit(Request $request,$id) {
+public function edit(Request $request) {
 $form_number = $request->input('form_number');
 $id = $request->input('id');
 $lastname = $request->input('lastname');
@@ -26,9 +26,7 @@ $email = $request->input('email');
 /*DB::table('student')->update($data);*/
 /* DB::table('student')->whereIn('id', $id)->update($request->all());*/
 
-DB::update('update candidates set form_number = ?,id=?,lastname=?,firstname=?,othernames=?,email=? where id = ?',[$form_number,$id,$lastname, $firstname,$othernames,$email]);
-echo "Record updated successfully.
-";
-echo 'Click Here to go back.';
+DB::table('attendance')->where('id','=',$id)->update(['status' => 1]);
+return redirect('candidate-check')->with('delete_status', 'Candidate succesfully verified');
 }
 }

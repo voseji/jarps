@@ -71,8 +71,7 @@ $batch_day=date('l', strtotime($date));
                                     <td>{{ $batch->batch_date }}</td>
 									<td style="text-transform:uppercase">@php echo $batch_day @endphp</td>
                                     <td>{{ $batch->batch_time }}</td>
-                                    <td>{{ $batch->hall}}</td>
-                                    <td>{{ $batch->seats_available}}</td>
+                                    
                                      <td class="text-right">
 											<div >
 											<a class="dropdown-item" href="edit-batch?batch_number={{ $batch->batch_number }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>

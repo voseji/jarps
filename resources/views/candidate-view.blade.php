@@ -41,12 +41,9 @@
                         <h4 class="page-title">Candidate Regigistration Slip</h4>
                     </div>
                     <div class="col-sm-9 col-9 m-b-30">
-                        <div class="btn-group btn-group-sm">
-                            
-                        
-                            <button class="btn btn-white" onclick="printDiv('card-print')" style="background-color:green; color:white"><i class="fa fa-print fa-lg"></i> Print</button>
+                        <button class="btn btn-white" onclick="printDiv('card-print')" style="background-color:green; color:white"><i class="fa fa-print fa-lg"></i> Print</button>
                         </div>
-                    </div>
+                    
                 </div>
 
                 @foreach ($users as $user)

@@ -54,6 +54,14 @@
                 <div class="card-box profile-header">
                     <div class="row">
                         <div class="col-md-12">
+                        @if(session()->has('delete_status'))
+   <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>{{ session()->get('delete_status') }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+@endif
                         <form class="col-sm-9" method="post" action="/check-attendance" >
             @csrf   
                                         </div>

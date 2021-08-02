@@ -81,7 +81,7 @@
       <td style="text-transform:uppercase">{{ $user->lastname }}, {{ $user->firstname }} {{ $user->othernames }}</td>
       <td style="text-transform:lowercase">{{ $user->email }}</td>
       <td style="text-transform:uppercase">{{ $user->name }}</td>
-      <td style="text-transform:uppercase">{{ $user->batch }}</td>
+      <td style="text-transform:uppercase">{{ $user->batch_id }}</td>
       <td class="text-right">
 											<div >
 											<a class="dropdown-item" href="edit/{{ $user->id }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>

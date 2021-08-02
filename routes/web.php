@@ -60,6 +60,12 @@ Route::get('delete', function () {
    return view('candidate-check');
 });
 
+Route::get('attendance', function () {
+   return view('attendance');
+});
+
+
+
 Route::get('qrcode', function () {
    return QrCode::size(250)
        ->backgroundColor(255, 255, 204)
@@ -95,7 +101,8 @@ Route::get('candidate-edit','EditCandidateController@index3');
 Route::post('check-attendance','AttendanceController@index2');
 Route::view('attendance-check','AttendanceController@index');
 
-
+Route::post('/print-attendance','AttendanceprintController@index2');
+Route::view('attendance-print','AttendanceprintController@index');
 
  
 //Route for pulling SOR and LGAOR
@@ -149,3 +156,6 @@ Route::post('new-user', 'AuthController@insert');
 Route::get('candidate-edit','StudUpdateController@index');
 Route::get('edit/{id}','StudUpdateController@show');
 Route::post('edit/{id}','StudUpdateController@edit');
+
+
+Route::post('/update','StudUpdateController@edit');

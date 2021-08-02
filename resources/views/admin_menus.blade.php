@@ -55,6 +55,10 @@
 						<li >
 							<a href="candidate-check"><i class="fa fa-user"></i> <span> Verify Candidate </span> </a>
 						</li>
+
+						<li>
+							<a href="attendance"><i class="fa fa-print"></i> <span> Print Attendance List </span> </a>
+						</li>
 						@elseif(Auth::user()->role =='data_capture_agent') 
 						<!---------------Data Capture Agents------------------>
 
@@ -81,7 +85,9 @@
 						</li>
 
                         
-
+						<li>
+							<a href="attendance"><i class="fa fa-user"></i> <span> Print Attendance List </span> </a>
+						</li>
 						
 
 

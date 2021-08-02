@@ -12,7 +12,8 @@ class StudViewController extends Controller
         $users = DB::table('candidates')
         ->join('departments', 'departments.id', '=', 'candidates.state_of_origin')
         ->join('employees', 'candidates.lga_of_origin', '=', 'employees.id')
-        ->select('candidates.*', 'departments.name', 'employees.name as lga')
+        ->join('attendance', 'candidates.id', '=', 'attendance.id')
+        ->select('candidates.*', 'departments.name', 'employees.name as lga', 'attendance.batch as batch_id')
         ->get();
         return view('candidates',['users'=>$users]);
         }

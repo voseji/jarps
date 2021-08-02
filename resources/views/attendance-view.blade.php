@@ -53,18 +53,22 @@
                           <div class="row custom-invoice">
                                
                                     <div class="col-6 col-sm-6 m-b-20">
-                                        
-                                    <a><button class="btn btn-white" style="background-color:green; color:white"><i class="fa fa-check"></i> Present for exam</button></a>
-                                    
+                                    <form action = "/update" method = "post">   
+                                    @csrf 
+                                    <input type="hidden" value="{{$user->id}}" type="text" name="id"/>
+                                  
+                              
+<div>                             
+<button type="submit" class="btn btn-success">
+                                <i class="fa fa-check"></i> Mark Present
+                            </button>    </div>    
+                            </form>
                                     </div>
                                     <div class="col-6 col-sm-6 m-b-20">
                                         <div class="invoice-details">
                                         <a href="candidate-check"><button class="btn btn-white" style="background-color:red; color:white"><i class="fa fa-close"></i> Close</button></a>
-                                        
-                                        
-                                            <ul class="list-unstyled">
-                                                
-                                            </ul>
+                                        <ul class="list-unstyled">
+                                        </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -100,19 +104,31 @@
                                             </tr>
 
                                             <tr>
-                                            <td><h5>Exam Date:</h5> <h3 class="text-uppercase"></h3></td>
+                                            <td><h5>Exam Date:</h5> <h3 class="text-uppercase" style="color:green">{{ $user->batch_date}}</h3></td>
                                             
-                                            <td><h5>Exam Time:</h5> <h3 class="text-uppercase"></h3></td>
+                                            <td><h5>Exam Time:</h5> <h3 class="text-uppercase" style="color:green">{{ $user->batch_time}}</h3></td>
                                             
-                                            <td><h5>Batch:</h5> <h3 class="text-uppercase"></h3></td>
+                                            <td><h5>Batch:</h5> <h3 class="text-uppercase" style="color:green">{{ $user->batch_number}}</h3></td>
                                             </tr>
                                             
 
                                             <tr >
-                                            <td> <h5>Hall Assigned:</h5> <h3 class="text-uppercase"></h3></td>
-                                            <td><h5>Seat Number:</h5> <h3 class="text-uppercase"></h3></td>
+                                            <td> <h5>Hall Assigned:</h5> <h3 class="text-uppercase" style="color:green">Hall {{ $user->hall}}</h3></td>
+                                            <td><h5>Seat Number:</h5> <h3 class="text-uppercase" style="color:green">{{ $user->seat_number}}</h3></td>
+                                            @php
+                                          $status=$user->status;
+                                        if ($status==0)
+                                        {
+                                            $status1="<i style='color:red'>Not Checked In</i>"; 
+                                        }
+                                        elseif ($status==1)
+                                        {
+                                           $status1="Present"; 
+                                        }
+                                          @endphp
+
+                                            <td><h5>Attendance Status:</h5> <h3 class="text-uppercase" style="color:green">@php echo $status1; @endphp</h3></td>
                                             
-                                            <td> <h5>LGA of Origin:</h5> <h3 class="text-uppercase"></h3></td>
                                         
                                            
                                             </tr>
